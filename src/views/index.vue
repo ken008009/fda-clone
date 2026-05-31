@@ -75,14 +75,10 @@
         </div>
       </div>
 
-      <div class="partners-section">
-        <h2 class="section-title">合作伙伴</h2>
-        <div class="partners-grid">
-          <div v-for="i in 10" :key="i" class="partner-logo">
-            <img :src="`/static/images/index/partners/partner-${i}.png`" :alt="`合作伙伴 ${i}`" />
-          </div>
-        </div>
-      </div>
+      <StrengthSection />
+
+      <h2 class="partners-title">合作机构</h2>
+      <PartnersWall />
     </div>
   </div>
 </template>
@@ -90,6 +86,8 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
 import Header from '@/components/Header.vue'
+import StrengthSection from '@/components/StrengthSection.vue'
+import PartnersWall from '@/components/PartnersWall.vue'
 
 const router = useRouter()
 
@@ -508,45 +506,12 @@ const benefits: BenefitItem[] = [
   }
 }
 
-.partners-section {
-  padding: 48px 0;
-
-  .section-title {
-    font-size: 28px;
-    font-weight: bold;
-    color: #fff;
-    text-align: center;
-    margin: 0 0 32px 0;
-  }
-
-  .partners-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 24px;
-    padding: 0 24px;
-
-    .partner-logo {
-      background: rgba(255, 255, 255, 0.95);
-      border-radius: 12px;
-      padding: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      cursor: pointer;
-
-      &:hover {
-        transform: scale(1.05);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      }
-
-      img {
-        max-width: 100%;
-        max-height: 60px;
-        object-fit: contain;
-      }
-    }
-  }
+.partners-title {
+  font-size: 21px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  margin: 30px 0 16px 0;
 }
 
 @keyframes slideUp {

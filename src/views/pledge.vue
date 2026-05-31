@@ -2,15 +2,139 @@
   <div class="pledge-page">
     <Header />
     <div class="container">
-      <div class="content">
-        <p class="description">质押功能开发中...</p>
+      <img src="/static/images/index/pledge/hero.png" alt="质押" class="hero-image" />
+
+      <div class="number-container">
+        <template v-for="(item, index) in digitLayout" :key="index">
+          <div v-if="item.type === 'digit'" class="digit-wrapper">
+            <div class="digit-column" :style="{ transform: `translateY(-${item.value * 10}%)` }">
+              <div v-for="num in digitNumbers" :key="num" class="digit-item">{{ num }}</div>
+            </div>
+          </div>
+          <div v-else-if="item.type === 'decimal'" class="digit-wrapper decimal-point">
+            <div class="decimal-item">{{ item.char }}</div>
+          </div>
+        </template>
       </div>
+
+      <p class="asset-label">当前资产</p>
+
+      <button class="mining-btn" @click="modalVisible = true">开始挖矿</button>
+
+      <Teleport to="body">
+        <div v-if="modalVisible" class="modal-overlay" @click="modalVisible = false">
+          <div class="modal-content" @click.stop>
+            <div class="modal-header">
+              <span></span>
+              <span class="modal-title">质押</span>
+              <span class="modal-close" @click="modalVisible = false">×</span>
+            </div>
+
+            <div class="modal-body">
+              <p class="section-label">选择质押周期</p>
+              <div class="cycle-list">
+                <div
+                  v-for="cycle in cycles"
+                  :key="cycle.days"
+                  class="cycle-card"
+                  :class="{ active: selectedCycle === cycle.days }"
+                  @click="selectedCycle = cycle.days"
+                >
+                  <div class="cycle-header">
+                    <span>{{ cycle.days }}天</span>
+                    <img
+                      :src="selectedCycle === cycle.days ? '/static/images/up-active.png' : '/static/images/up-inactive.png'"
+                      class="cycle-icon"
+                    />
+                  </div>
+                  <div class="cycle-rate">
+                    <span class="rate-num">{{ cycle.rate }}%</span>
+                    <span class="rate-label">日复利</span>
+                  </div>
+                </div>
+              </div>
+
+              <p class="balance-text">可用余额：<span class="highlight">0.00 USDT</span></p>
+
+              <div class="input-row">
+                <div class="input-wrap">
+                  <input
+                    v-model="amount"
+                    type="number"
+                    placeholder="请输入质押金额"
+                    class="amount-input"
+                  />
+                </div>
+                <button class="max-btn" @click="amount = '1000'">MAX</button>
+              </div>
+
+              <div class="limit-row">
+                <span>最低质押：<span class="highlight">1USDT</span></span>
+                <span>最高质押：<span class="highlight">1000USDT</span></span>
+              </div>
+
+              <div class="profit-row">
+                <span>预计收益:</span>
+                <span class="highlight">0 USDT</span>
+              </div>
+
+              <button class="submit-btn" @click="handleSubmit">立即质押</button>
+            </div>
+          </div>
+        </div>
+      </Teleport>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import Header from '@/components/Header.vue'
+
+type DigitItem =
+  | { type: 'digit'; value: number }
+  | { type: 'decimal'; char: string }
+
+const modalVisible = ref(false)
+const amount = ref('')
+const selectedCycle = ref(30)
+
+const digitNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+// 灵活配置：自由调整位数和小数点位置
+// 当前显示 0.000000（1位整数 + 小数点 + 6位小数）
+const digitLayout = ref<DigitItem[]>([
+  { type: 'digit', value: 0 },
+  { type: 'decimal', char: '.' },
+  { type: 'digit', value: 0 },
+  { type: 'digit', value: 0 },
+  { type: 'digit', value: 0 },
+  { type: 'digit', value: 0 },
+  { type: 'digit', value: 0 },
+  { type: 'digit', value: 0 }
+])
+
+// 设置显示的数字，自动更新每个 digit 位
+const setDisplayNumber = (numStr: string) => {
+  const digits = numStr.replace('.', '').split('')
+  let digitIndex = 0
+  digitLayout.value.forEach(item => {
+    if (item.type === 'digit' && digitIndex < digits.length) {
+      item.value = parseInt(digits[digitIndex])
+      digitIndex++
+    }
+  })
+}
+
+const cycles = [
+  { days: 30, rate: '1.3' },
+  { days: 15, rate: '0.7' },
+  { days: 7, rate: '0.3' }
+]
+
+const handleSubmit = () => {
+  console.log('质押', { amount: amount.value, cycle: selectedCycle.value })
+}
 </script>
 
 <style lang="scss" scoped>
@@ -19,18 +143,287 @@ import Header from '@/components/Header.vue'
 .pledge-page {
   min-height: 100vh;
   padding-top: 64px;
+}
 
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: $spacing-xl;
+.container {
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .hero-image {
+    width: 100%;
+    max-width: 345px;
+    height: auto;
+    margin-top: 18px;
   }
 
-  .content {
-    .description {
-      font-size: 16px;
-      color: $text-primary;
-      margin: 0;
+  .number-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 22px;
+
+    .digit-wrapper {
+      height: 48px;
+      overflow: hidden;
+
+      &.decimal-point {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 48px;
+      }
+
+      .digit-column {
+        transition: transform 0.8s ease-out;
+
+        .digit-item {
+          height: 48px;
+          line-height: 48px;
+          font-size: 40px;
+          font-weight: bold;
+          color: #fff;
+          text-align: center;
+        }
+      }
+
+      .decimal-item {
+        height: 48px;
+        line-height: 48px;
+        font-size: 40px;
+        font-weight: bold;
+        color: #fff;
+        text-align: center;
+      }
+    }
+  }
+
+  .asset-label {
+    margin-top: 4px;
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+  }
+
+  .mining-btn {
+    width: 100%;
+    margin-top: 16px;
+    padding: 12px 0;
+    background: linear-gradient(180deg, #E689FF 0%, #C489FF 51%, #9399FF 100%);
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 24px;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.2s ease;
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  width: 100%;
+  max-width: 414px;
+  background: #1F1E2E;
+  border-radius: 32px 32px 0 0;
+  padding: 20px 24px 32px;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+  .modal-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .modal-close {
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+    line-height: 1;
+  }
+}
+
+.modal-body {
+  .section-label {
+    font-size: 13px;
+    color: #fff;
+    margin: 0 0 16px 0;
+  }
+
+  .cycle-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+
+    .cycle-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 70px;
+      padding: 10px 5px 15px;
+      border: 0.5px solid #4B356B;
+      border-radius: 10px;
+      background: #272540;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &.active {
+        background: linear-gradient(136deg, #E597FF 0%, #7978EF 100%);
+        border-color: transparent;
+        transform: scale(1.05);
+
+        .cycle-header span,
+        .cycle-rate .rate-num,
+        .cycle-rate .rate-label {
+          color: #251E32;
+        }
+      }
+
+      .cycle-header {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+        font-size: 12px;
+        color: #8E9BB4;
+        margin-bottom: 5px;
+
+        .cycle-icon {
+          width: 12px;
+          height: 12px;
+          flex-shrink: 0;
+        }
+      }
+
+      .cycle-rate {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 5px;
+
+        .rate-num {
+          font-size: 23px;
+          font-weight: bold;
+          color: #8E9BB4;
+        }
+
+        .rate-label {
+          font-size: 10px;
+          color: #8E9BB4;
+          margin-top: 2px;
+        }
+      }
+    }
+  }
+
+  .balance-text {
+    font-size: 13px;
+    color: #fff;
+    margin: 0 0 12px 0;
+    font-weight: bold;
+  }
+
+  .input-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+
+    .input-wrap {
+      flex: 1;
+      background: #1A1626;
+      border: 0.5px solid rgba(138, 133, 211, 0.2);
+      border-radius: 8px;
+      padding: 10px 12px;
+
+      .amount-input {
+        width: 100%;
+        background: transparent;
+        border: none;
+        color: #fff;
+        font-size: 14px;
+        outline: none;
+
+        &::placeholder {
+          color: #64718B;
+        }
+      }
+    }
+
+    .max-btn {
+      width: 54px;
+      height: 41px;
+      background: linear-gradient(180deg, #E689FF 0%, #C489FF 51%, #9399FF 100%);
+      color: #000;
+      font-size: 13px;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  }
+
+  .limit-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
+  .profit-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
+  .highlight {
+    color: #BC68FF;
+    font-weight: bold;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 12px 0;
+    background: linear-gradient(180deg, #E689FF 0%, #C489FF 51%, #9399FF 100%);
+    color: #000;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 24px;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.15s ease;
+
+    &:active {
+      transform: scale(0.95);
     }
   }
 }
