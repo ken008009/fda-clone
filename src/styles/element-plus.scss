@@ -1,0 +1,271 @@
+@use './variables.scss' as *;
+
+// Element Plus 主题定制
+:root {
+  --el-color-primary: $primary-color;
+  --el-color-primary-light-3: mix($primary-color, #ffffff, 80%);
+  --el-color-primary-light-5: mix($primary-color, #ffffff, 60%);
+  --el-color-primary-light-7: mix($primary-color, #ffffff, 40%);
+  --el-color-primary-light-8: mix($primary-color, #ffffff, 30%);
+  --el-color-primary-light-9: mix($primary-color, #ffffff, 20%);
+  --el-color-primary-dark-2: mix($primary-color, #000000, 20%);
+}
+
+// 按钮组件样式
+.el-button {
+  border-radius: $radius-md;
+  font-weight: 500;
+  transition: all $transition-fast;
+
+  &--primary {
+    background: linear-gradient(135deg, $primary-color, $primary-light);
+    border: none;
+
+    &:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+      box-shadow: $shadow-md;
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  &--default {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid $border-color;
+
+    &:hover {
+      background: #fff;
+      border-color: $primary-color;
+      color: $primary-color;
+    }
+  }
+}
+
+// 卡片组件样式
+.el-card {
+  border-radius: $radius-xl;
+  border: none;
+  box-shadow: $shadow-lg;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95);
+
+  .el-card__header {
+    border-bottom: 1px solid $border-light;
+    padding: $spacing-lg;
+  }
+
+  .el-card__body {
+    padding: $spacing-lg;
+  }
+}
+
+// 输入框组件样式
+.el-input {
+  .el-input__wrapper {
+    border-radius: $radius-md;
+    box-shadow: $shadow-sm;
+    transition: all $transition-fast;
+
+    &:hover {
+      box-shadow: $shadow-md;
+    }
+
+    &.is-focus {
+      box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+    }
+  }
+}
+
+// 下拉菜单样式
+.el-select {
+  .el-input__wrapper {
+    border-radius: $radius-md;
+  }
+}
+
+// 对话框样式
+.el-dialog {
+  border-radius: $radius-xl;
+  
+  .el-dialog__header {
+    border-bottom: 1px solid $border-light;
+    padding: $spacing-lg;
+  }
+
+  .el-dialog__body {
+    padding: $spacing-lg;
+  }
+
+  .el-dialog__footer {
+    border-top: 1px solid $border-light;
+    padding: $spacing-lg;
+  }
+}
+
+// 消息提示样式
+.el-message {
+  border-radius: $radius-md;
+  box-shadow: $shadow-lg;
+  backdrop-filter: blur(10px);
+}
+
+// 加载样式
+.el-loading-mask {
+  backdrop-filter: blur(4px);
+}
+
+// 标签页样式
+.el-tabs {
+  .el-tabs__item {
+    font-weight: 500;
+    
+    &.is-active {
+      color: $primary-color;
+    }
+  }
+
+  .el-tabs__active-bar {
+    background: linear-gradient(90deg, $primary-color, $primary-light);
+  }
+}
+
+// 分页样式
+.el-pagination {
+  .el-pager li {
+    border-radius: $radius-sm;
+    transition: all $transition-fast;
+
+    &.is-active {
+      background: linear-gradient(135deg, $primary-color, $primary-light);
+      color: #fff;
+    }
+  }
+
+  button {
+    border-radius: $radius-sm;
+  }
+}
+
+// 工具提示样式
+.el-tooltip__popper {
+  border-radius: $radius-md;
+  box-shadow: $shadow-md;
+}
+
+// 下拉菜单
+.el-dropdown-menu {
+  border-radius: $radius-md;
+  box-shadow: $shadow-lg;
+  border: none;
+
+  .el-dropdown-menu__item {
+    border-radius: $radius-sm;
+    transition: all $transition-fast;
+
+    &:hover {
+      background: rgba(102, 126, 234, 0.1);
+      color: $primary-color;
+    }
+  }
+}
+
+// 开关样式
+.el-switch {
+  .el-switch__core {
+    border-radius: 999px;
+    transition: all $transition-fast;
+  }
+}
+
+// 滑块样式
+.el-slider {
+  .el-slider__runway {
+    background: $border-light;
+  }
+
+  .el-slider__bar {
+    background: linear-gradient(90deg, $primary-color, $primary-light);
+  }
+
+  .el-slider__button {
+    border: 2px solid $primary-color;
+    transition: all $transition-fast;
+  }
+}
+
+// 进度条样式
+.el-progress {
+  .el-progress-bar__outer {
+    background: $border-light;
+    border-radius: $radius-sm;
+  }
+
+  .el-progress-bar__inner {
+    background: linear-gradient(90deg, $primary-color, $primary-light);
+    border-radius: $radius-sm;
+  }
+}
+
+// 徽章样式
+.el-badge {
+  .el-badge__content {
+    border-radius: 999px;
+  }
+}
+
+// 警告样式
+.el-alert {
+  border-radius: $radius-md;
+  border: none;
+  box-shadow: $shadow-sm;
+}
+
+// 表格样式
+.el-table {
+  border-radius: $radius-lg;
+  overflow: hidden;
+  box-shadow: $shadow-sm;
+
+  th {
+    background: $bg-secondary;
+    font-weight: 600;
+  }
+
+  tr:hover > td {
+    background: rgba(102, 126, 234, 0.05);
+  }
+}
+
+// 表单样式
+.el-form-item {
+  margin-bottom: $spacing-lg;
+
+  .el-form-item__label {
+    font-weight: 500;
+  }
+}
+
+// 动画效果
+.el-fade-in-enter-active,
+.el-fade-in-leave-active {
+  transition: opacity $transition-base;
+}
+
+.el-fade-in-enter-from,
+.el-fade-in-leave-to {
+  opacity: 0;
+}
+
+.el-zoom-in-center-enter-active,
+.el-zoom-in-center-leave-active {
+  transition: all $transition-base;
+}
+
+.el-zoom-in-center-enter-from,
+.el-zoom-in-center-leave-to {
+  opacity: 0;
+  transform: scale(0.9);
+}
