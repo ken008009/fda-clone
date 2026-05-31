@@ -27,26 +27,26 @@ const tabs: TabItem[] = [
   {
     path: '/index',
     name: '首页',
-    icon: '/static/tabbar/home.png',
-    activeIcon: '/static/tabbar/home-active.png'
+    icon: '/static/tabbar/home.svg',
+    activeIcon: '/static/tabbar/home-active.svg'
   },
   {
     path: '/pledge',
     name: '挖矿',
-    icon: '/static/tabbar/pledge.png',
-    activeIcon: '/static/tabbar/pledge-active.png'
+    icon: '/static/tabbar/pledge.svg',
+    activeIcon: '/static/tabbar/pledge-active.svg'
   },
   {
     path: '/community',
     name: '社区',
-    icon: '/static/tabbar/community.png',
-    activeIcon: '/static/tabbar/community-active.png'
+    icon: '/static/tabbar/community.svg',
+    activeIcon: '/static/tabbar/community-active.svg'
   },
   {
     path: '/mine',
     name: '我的',
-    icon: '/static/tabbar/mine.png',
-    activeIcon: '/static/tabbar/mine-active.png'
+    icon: '/static/tabbar/mine.svg',
+    activeIcon: '/static/tabbar/mine-active.svg'
   }
 ]
 
