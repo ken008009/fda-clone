@@ -77,7 +77,7 @@ const handleTabClick = (path: string) => {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background: #26023f;
+  background: $bg-main;
   padding: $spacing-sm 0;
   z-index: 1000;
   box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
@@ -92,10 +92,10 @@ const handleTabClick = (path: string) => {
     padding: $spacing-xs $spacing-lg;
 
     img {
-      width: 24px;
-      height: 24px;
+      width: 32px;
+      height: 32px;
       object-fit: contain;
-      transition: transform $transition-fast;
+      transition: all $transition-fast;
     }
 
     .tab-label {
@@ -106,18 +106,19 @@ const handleTabClick = (path: string) => {
 
     &.active {
       img {
-        transform: scale(1.1);
+        width: 24px;
+        height: 24px;
       }
 
       .tab-label {
-        color: #7127E0;
+        color: $brand-gold;
         font-weight: 500;
       }
     }
 
     &:hover {
       .tab-label {
-        color: $text-secondary;
+        color: $text-muted;
       }
     }
   }

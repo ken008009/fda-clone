@@ -25,12 +25,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: $bg-secondary;
+  background-color: $bg-main;
   color: $text-primary;
-  background-image: url('/static/images/page-bg.png');
-  background-position: top center;
-  background-repeat: repeat-y;
-  background-size: 100% auto;
 }
 
 body {
@@ -46,12 +42,12 @@ body {
 
 // 链接样式
 a {
-  color: $primary-color;
+  color: $brand-gold;
   text-decoration: none;
   transition: color $transition-fast;
 
   &:hover {
-    color: $primary-light;
+    color: $brand-gold-light;
   }
 }
 

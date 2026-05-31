@@ -83,9 +83,9 @@ const handleWalletClick = () => {
   max-width: 414px;
   width: 100%;
   z-index: 999;
-  background: rgba(38, 2, 63, 0.95);
+  background: rgba(5, 5, 5, 0.95);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(113, 39, 224, 0.2);
+  border-bottom: 1px solid $border-color;
 
   .header-container {
     display: flex;
@@ -119,9 +119,9 @@ const handleWalletClick = () => {
 
       .connect-btn {
         padding: 4px 14px;
-        background: #652f76;
-        color: #fff;
-        border: none;
+        background: transparent;
+        color: $brand-gold;
+        border: 1px solid $brand-gold;
         border-radius: $radius-lg;
         font-size: 11px;
         font-weight: 500;
@@ -129,9 +129,9 @@ const handleWalletClick = () => {
         transition: all $transition-fast;
 
         &:hover {
-          opacity: 0.9;
+          background: $gradient-gold;
+          color: $text-inverse;
           transform: translateY(-1px);
-          box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
         }
 
         &:active {
@@ -168,7 +168,7 @@ const handleWalletClick = () => {
     width: 70%;
     max-width: 280px;
     height: 100%;
-    background: #1e1e2d;
+    background: $bg-card;
     padding: 20px;
 
     .lang-drawer-title {
@@ -190,7 +190,7 @@ const handleWalletClick = () => {
         transition: color 0.2s ease;
 
         &.active {
-          color: #BC68FF;
+          color: $brand-gold;
         }
 
         &:hover {

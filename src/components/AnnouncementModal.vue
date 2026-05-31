@@ -101,6 +101,8 @@ const handleNoRemind = () => {
 </script>
 
 <style lang="scss" scoped>
+@use '@/styles/variables.scss' as *;
+
 .announcement-overlay {
   position: fixed;
   inset: 0;
@@ -117,7 +119,7 @@ const handleNoRemind = () => {
   width: 90%;
   max-width: 360px;
   max-height: 70vh;
-  background: #1a1a2e;
+  background: $bg-card;
   border-radius: 12px;
   padding: 20px;
   display: flex;
@@ -129,12 +131,12 @@ const handleNoRemind = () => {
     right: 12px;
     width: 24px;
     height: 24px;
-    color: #999;
+    color: $text-muted;
     cursor: pointer;
     transition: color 0.2s;
 
     &:hover {
-      color: #fff;
+      color: $text-primary;
     }
   }
 
@@ -149,7 +151,7 @@ const handleNoRemind = () => {
   .modal-subtitle {
     font-size: 14px;
     font-weight: normal;
-    color: #BC68FF;
+    color: $brand-gold;
     text-align: center;
     margin: 0 0 16px;
   }
@@ -173,7 +175,7 @@ const handleNoRemind = () => {
     p {
       margin: 0 0 4px;
       font-size: 13px;
-      color: #ccc;
+      color: $text-muted;
       line-height: 1.6;
       white-space: pre-wrap;
     }
@@ -192,14 +194,19 @@ const handleNoRemind = () => {
     .confirm-btn {
       width: 100%;
       padding: 12px 0;
-      background: linear-gradient(135deg, #BC68FF 0%, #7978EF 100%);
-      color: #fff;
+      background: transparent;
+      color: $brand-gold;
       font-size: 15px;
       font-weight: bold;
-      border: none;
+      border: 1px solid $brand-gold;
       border-radius: 8px;
       cursor: pointer;
-      transition: opacity 0.2s;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: $gradient-gold;
+        color: $text-inverse;
+      }
 
       &:active {
         opacity: 0.85;
@@ -209,12 +216,12 @@ const handleNoRemind = () => {
     .no-remind {
       margin: 0;
       font-size: 13px;
-      color: #999;
+      color: $text-muted;
       cursor: pointer;
       text-decoration: underline;
 
       &:hover {
-        color: #ccc;
+        color: $text-primary;
       }
     }
   }

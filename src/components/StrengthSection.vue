@@ -114,6 +114,8 @@ onUnmounted(() => {
 </script>
 
 <style lang="scss" scoped>
+@use '@/styles/variables.scss' as *;
+
 .strength-section {
   margin-bottom: 32px;
 
@@ -145,7 +147,7 @@ onUnmounted(() => {
     .card-border {
       position: relative;
       padding: 2px;
-      background: linear-gradient(180deg, #E588FE 0%, #9298FF 100%);
+      background: linear-gradient(180deg, #F1DC9B 0%, #D4AF37 100%);
       border-radius: 20px;
       height: 100%;
     }
@@ -156,7 +158,7 @@ onUnmounted(() => {
       left: 50%;
       transform: translateX(-50%);
       padding: 6px 24px;
-      background: linear-gradient(180deg, #E689FF 0%, #C489FF 51%, #9399FF 100%);
+      background: linear-gradient(180deg, #F1DC9B 0%, #D4AF37 51%, #B8941F 100%);
       color: #000;
       font-size: 13px;
       font-weight: 800;
@@ -170,7 +172,8 @@ onUnmounted(() => {
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      background: #000;
+      background: rgba(20, 20, 20, 0.6);
+      backdrop-filter: blur(10px);
       border-radius: 18px;
       padding: 0 0 20px;
       overflow: hidden;
@@ -192,7 +195,7 @@ onUnmounted(() => {
 
       .card-desc {
         font-size: 12px;
-        color: #AFAABF;
+        color: $text-muted;
         text-align: center;
         margin: 0;
         line-height: 1.5;

@@ -66,6 +66,8 @@ import Header from '@/components/Header.vue'
 </script>
 
 <style lang="scss" scoped>
+@use '@/styles/variables.scss' as *;
+
 .mine-page {
   min-height: 100vh;
   padding-top: 64px;
@@ -85,7 +87,8 @@ import Header from '@/components/Header.vue'
     position: absolute;
     inset: 0;
     border-radius: 12px;
-    background: linear-gradient(135deg, #8A4F98 0%, #3A1F4A 100%);
+    background: rgba(20, 20, 20, 0.6);
+    backdrop-filter: blur(10px);
   }
 
   .card-content {
@@ -123,7 +126,7 @@ import Header from '@/components/Header.vue'
       margin-bottom: 12px;
       padding: 10px;
       border-radius: 8px;
-      background: rgba(0, 0, 0, 0.2);
+      background: rgba(255, 255, 255, 0.05);
 
       &:last-child {
         margin-bottom: 0;
@@ -139,15 +142,15 @@ import Header from '@/components/Header.vue'
         font-weight: bold;
 
         &.green {
-          color: #66E3C9;
+          color: $brand-gold;
         }
 
         &.yellow {
-          color: #EEDC7B;
+          color: $brand-gold-light;
         }
 
         &.purple {
-          color: #BC68FF;
+          color: $brand-gold;
         }
       }
     }
@@ -157,15 +160,20 @@ import Header from '@/components/Header.vue'
     width: 100%;
     margin-top: 10px;
     padding: 11px 0;
-    background: linear-gradient(135deg, #F5C359 0%, #D4A64D 40%, #B8823C 100%);
-    color: #fff;
+    background: transparent;
+    color: $brand-gold;
     font-size: 16px;
     font-weight: bold;
-    border: none;
+    border: 1px solid $brand-gold;
     border-radius: 24px;
     cursor: pointer;
     text-align: center;
-    transition: transform 0.15s ease;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: $gradient-gold;
+      color: $text-inverse;
+    }
 
     &:active {
       transform: scale(0.95);
@@ -213,7 +221,7 @@ import Header from '@/components/Header.vue'
       width: 4px;
       height: 16px;
       border-radius: 2px;
-      background: linear-gradient(180deg, #8A4F98 0%, #3A1F4A 100%);
+      background: linear-gradient(180deg, #D4AF37 0%, #B8941F 100%);
       transform: translateY(-50%);
     }
 
@@ -230,15 +238,16 @@ import Header from '@/components/Header.vue'
   margin-top: 10px;
   min-height: 300px;
   overflow: hidden;
-  border: 1px solid rgba(196, 119, 255, 0.25);
+  border: 1px solid $border-color;
   border-radius: 11px;
-  background-image: linear-gradient(180deg, rgba(42, 46, 60, 0.36), rgba(64, 62, 101, 0.4));
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(10px);
   padding: 11px 0;
 
   .table-header {
     display: flex;
     align-items: center;
-    background: #271D3D;
+    background: #0A0A0A;
     padding: 8px 0;
     margin: -11px 0 0;
 
@@ -246,7 +255,7 @@ import Header from '@/components/Header.vue'
       flex: 1;
       text-align: center;
       font-size: 10px;
-      color: #969AB1;
+      color: $text-muted;
     }
   }
 
@@ -260,7 +269,7 @@ import Header from '@/components/Header.vue'
     p {
       margin-top: 8px;
       font-size: 12px;
-      color: #999;
+      color: $text-muted;
     }
   }
 }

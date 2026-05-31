@@ -283,25 +283,32 @@ const benefits: BenefitItem[] = [
 .start-button {
     width: 100%;
     padding: 12px 0;
-    background: linear-gradient(180deg, #E689FF 0%, #C489FF 51%, #9399FF 100%);
-    color: #000;
+    background: transparent;
+    color: $brand-gold;
     font-size: 17px;
     font-weight: 500;
-    border: none;
+    border: 1px solid $brand-gold;
     border-radius: 24px;
     cursor: pointer;
     text-align: center;
     margin-top: 8px;
     margin-bottom: 20px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: $gradient-gold;
+      color: $text-inverse;
+    }
 }
 
 .advantage-section {
   padding: 24px 20px;
-  background-image: linear-gradient(180deg, rgba(42, 46, 60, .36), rgba(64, 62, 101, .4));
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(10px);
   border-radius: 24px;
   margin-bottom: 32px;
   margin-top: 20px;
-  border: 1px solid rgba(113, 39, 224, 0.2);
+  border: 1px solid $border-color;
 
   .ido-header {
     display: flex;
@@ -335,9 +342,9 @@ const benefits: BenefitItem[] = [
     justify-content: space-between;
     align-items: center;
     padding: 16px;
-    background: rgba(113, 39, 224, 0.1);
+    background: rgba(212, 175, 55, 0.08);
     border-radius: 12px;
-    border: 1px solid rgba(113, 39, 224, 0.3);
+    border: 1px solid rgba(212, 175, 55, 0.25);
     margin-bottom: 24px;
 
     .ido-label {
@@ -348,7 +355,7 @@ const benefits: BenefitItem[] = [
 
     .ido-limit {
       font-size: 14px;
-      color: #C489FF;
+      color: $brand-gold;
     }
   }
 
@@ -359,7 +366,7 @@ const benefits: BenefitItem[] = [
     .price-number {
       font-size: 36px;
       font-weight: bold;
-      color: #C489FF;
+      color: $brand-gold;
     }
 
     .price-unit {
@@ -414,23 +421,30 @@ const benefits: BenefitItem[] = [
   .ido-btn {
     width: 100%;
     padding: 14px 0;
-    background: rgba(255, 255, 255, 0.2);
-    color: rgba(255, 255, 255, 0.6);
+    background: transparent;
+    color: $brand-gold;
     font-size: 16px;
     font-weight: 500;
-    border: none;
+    border: 1px solid $brand-gold;
     border-radius: 24px;
     cursor: pointer;
     text-align: center;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: $gradient-gold;
+      color: $text-inverse;
+    }
   }
 }
 
 .nft-section {
   padding: 24px 20px;
-  background-image: linear-gradient(180deg, rgba(42, 46, 60, .36), rgba(64, 62, 101, .4));
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(10px);
   border-radius: 24px;
   margin-bottom: 32px;
-  border: 1px solid rgba(113, 39, 224, 0.2);
+  border: 1px solid $border-color;
 
   .nft-header {
     display: flex;
@@ -463,16 +477,16 @@ const benefits: BenefitItem[] = [
     text-align: center;
     font-size: 15px;
     font-weight: bold;
-    color: #903BFF;
+    color: $brand-gold;
     margin: 0 0 12px 0;
   }
 
   .nft-desc {
     padding: 12px 16px;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.03);
     border-radius: 12px;
     font-size: 13px;
-    color: #EBEBEB;
+    color: $text-muted;
     line-height: 1.6;
     margin: 0 0 16px 0;
     text-align: center;
@@ -495,13 +509,13 @@ const benefits: BenefitItem[] = [
 
       .progress-num {
         font-size: 14px;
-        color: #EBEBEB;
+        color: $text-muted;
       }
     }
 
     .progress-text {
       font-size: 13px;
-      color: #EBEBEB;
+      color: $text-muted;
     }
   }
 }

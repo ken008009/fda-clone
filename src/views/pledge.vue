@@ -114,18 +114,6 @@ const digitLayout = ref<DigitItem[]>([
   { type: 'digit', value: 0 }
 ])
 
-// 设置显示的数字，自动更新每个 digit 位
-const setDisplayNumber = (numStr: string) => {
-  const digits = numStr.replace('.', '').split('')
-  let digitIndex = 0
-  digitLayout.value.forEach(item => {
-    if (item.type === 'digit' && digitIndex < digits.length) {
-      item.value = parseInt(digits[digitIndex])
-      digitIndex++
-    }
-  })
-}
-
 const cycles = [
   { days: 30, rate: '1.3' },
   { days: 15, rate: '0.7' },
@@ -210,15 +198,20 @@ const handleSubmit = () => {
     width: 100%;
     margin-top: 16px;
     padding: 12px 0;
-    background: linear-gradient(180deg, #E689FF 0%, #C489FF 51%, #9399FF 100%);
-    color: #000;
+    background: transparent;
+    color: $brand-gold;
     font-size: 16px;
     font-weight: bold;
-    border: none;
+    border: 1px solid $brand-gold;
     border-radius: 24px;
     cursor: pointer;
     text-align: center;
-    transition: transform 0.2s ease;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: $gradient-gold;
+      color: $text-inverse;
+    }
 
     &:active {
       transform: scale(0.95);
@@ -242,7 +235,8 @@ const handleSubmit = () => {
 .modal-content {
   width: 100%;
   max-width: 414px;
-  background: #1F1E2E;
+  background: rgba(20, 20, 20, 0.8);
+  backdrop-filter: blur(10px);
   border-radius: 32px 32px 0 0;
   padding: 20px 24px 32px;
 }
@@ -287,21 +281,21 @@ const handleSubmit = () => {
       justify-content: center;
       min-height: 70px;
       padding: 10px 5px 15px;
-      border: 0.5px solid #4B356B;
+      border: 0.5px solid rgba(212, 175, 55, 0.2);
       border-radius: 10px;
-      background: #272540;
+      background: $bg-card;
       cursor: pointer;
       transition: all 0.3s ease;
 
       &.active {
-        background: linear-gradient(136deg, #E597FF 0%, #7978EF 100%);
+        background: $gradient-gold;
         border-color: transparent;
         transform: scale(1.05);
 
         .cycle-header span,
         .cycle-rate .rate-num,
         .cycle-rate .rate-label {
-          color: #251E32;
+          color: $text-inverse;
         }
       }
 
@@ -310,7 +304,7 @@ const handleSubmit = () => {
         align-items: center;
         gap: 3px;
         font-size: 12px;
-        color: #8E9BB4;
+        color: $text-muted;
         margin-bottom: 5px;
 
         .cycle-icon {
@@ -329,12 +323,12 @@ const handleSubmit = () => {
         .rate-num {
           font-size: 23px;
           font-weight: bold;
-          color: #8E9BB4;
+          color: $text-muted;
         }
 
         .rate-label {
           font-size: 10px;
-          color: #8E9BB4;
+          color: $text-muted;
           margin-top: 2px;
         }
       }
@@ -356,8 +350,8 @@ const handleSubmit = () => {
 
     .input-wrap {
       flex: 1;
-      background: #1A1626;
-      border: 0.5px solid rgba(138, 133, 211, 0.2);
+      background: #0A0A0A;
+      border: 0.5px solid rgba(212, 175, 55, 0.15);
       border-radius: 8px;
       padding: 10px 12px;
 
@@ -370,7 +364,7 @@ const handleSubmit = () => {
         outline: none;
 
         &::placeholder {
-          color: #64718B;
+          color: $text-muted;
         }
       }
     }
@@ -378,13 +372,19 @@ const handleSubmit = () => {
     .max-btn {
       width: 54px;
       height: 41px;
-      background: linear-gradient(180deg, #E689FF 0%, #C489FF 51%, #9399FF 100%);
-      color: #000;
+      background: transparent;
+      color: $brand-gold;
       font-size: 13px;
       font-weight: bold;
-      border: none;
+      border: 1px solid $brand-gold;
       border-radius: 10px;
       cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: $gradient-gold;
+        color: $text-inverse;
+      }
     }
   }
 
@@ -405,22 +405,27 @@ const handleSubmit = () => {
   }
 
   .highlight {
-    color: #BC68FF;
+    color: $brand-gold;
     font-weight: bold;
   }
 
   .submit-btn {
     width: 100%;
     padding: 12px 0;
-    background: linear-gradient(180deg, #E689FF 0%, #C489FF 51%, #9399FF 100%);
-    color: #000;
+    background: transparent;
+    color: $brand-gold;
     font-size: 14px;
     font-weight: bold;
-    border: none;
+    border: 1px solid $brand-gold;
     border-radius: 24px;
     cursor: pointer;
     text-align: center;
-    transition: transform 0.15s ease;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: $gradient-gold;
+      color: $text-inverse;
+    }
 
     &:active {
       transform: scale(0.95);

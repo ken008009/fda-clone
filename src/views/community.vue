@@ -70,6 +70,8 @@ import Header from '@/components/Header.vue'
 </script>
 
 <style lang="scss" scoped>
+@use '@/styles/variables.scss' as *;
+
 .community-page {
   min-height: 100vh;
   padding-top: 64px;
@@ -82,8 +84,9 @@ import Header from '@/components/Header.vue'
 .info-card {
   margin-top: 25px;
   padding: 12px 15px 35px;
-  background-image: linear-gradient(180deg, rgba(42, 46, 60, 0.36), rgba(64, 62, 101, 0.4));
-  border: 1px solid rgba(196, 119, 255, 0.25);
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid $border-color;
   border-radius: 10px;
 }
 
@@ -96,14 +99,14 @@ import Header from '@/components/Header.vue'
 
   .address-tag {
     padding: 4px 8px;
-    background: #2F2768;
+    background: rgba(212, 175, 55, 0.1);
     border-radius: 8px;
     font-size: 10px;
   }
 
   .level-text {
     font-size: 13px;
-    color: #BC68FF;
+    color: $brand-gold;
     font-weight: bold;
   }
 }
@@ -120,9 +123,10 @@ import Header from '@/components/Header.vue'
     align-items: center;
     justify-content: center;
     padding: 10px 0;
-    border: 1px solid #D5B1FF;
+    border: 1px solid rgba(212, 175, 55, 0.25);
     border-radius: 6px;
-    background: linear-gradient(156deg, #48286D 0%, #593484 52%, #48286D 100%);
+    background: rgba(20, 20, 20, 0.4);
+    backdrop-filter: blur(6px);
 
     &.relative {
       position: relative;
@@ -133,13 +137,13 @@ import Header from '@/components/Header.vue'
       top: 4px;
       right: 4px;
       font-size: 12px;
-      color: #ccc;
+      color: $text-muted;
     }
 
     .stats-num {
       font-size: 18px;
       font-weight: bold;
-      color: #BC68FF;
+      color: $brand-gold;
     }
 
     .stats-label {
@@ -154,7 +158,7 @@ import Header from '@/components/Header.vue'
 .list-title {
   margin: 30px 0 0 0;
   font-size: 15px;
-  color: #E9E9E9;
+  color: $text-muted;
   text-align: center;
   font-weight: normal;
 }
@@ -163,15 +167,16 @@ import Header from '@/components/Header.vue'
   margin-top: 15px;
   min-height: 300px;
   overflow: hidden;
-  border: 1px solid rgba(196, 119, 255, 0.25);
+  border: 1px solid $border-color;
   border-radius: 11px;
-  background-image: linear-gradient(180deg, rgba(42, 46, 60, 0.36), rgba(64, 62, 101, 0.4));
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(10px);
   padding: 11px 0;
 
   .table-header {
     display: flex;
     align-items: center;
-    background: #271D3D;
+    background: #0A0A0A;
     padding: 8px 0;
     margin: -11px 0 0;
 
@@ -179,7 +184,7 @@ import Header from '@/components/Header.vue'
       flex: 1;
       text-align: center;
       font-size: 10px;
-      color: #969AB1;
+      color: $text-muted;
     }
   }
 
@@ -193,7 +198,7 @@ import Header from '@/components/Header.vue'
     p {
       margin-top: 8px;
       font-size: 12px;
-      color: #999;
+      color: $text-muted;
     }
   }
 }
