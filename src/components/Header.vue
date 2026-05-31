@@ -6,23 +6,69 @@
         <span>FDA</span>
       </div>
       <div class="header-right">
-        <button class="connect-btn">连接钱包</button>
+        <button class="connect-btn" @click="handleWalletClick">
+          {{ walletStore.isConnected ? walletStore.shortAddress : '连接钱包' }}
+        </button>
         <div class="language-selector" @click="handleLanguageClick">
           <img src="/static/images/language.png" alt="Language" class="language-icon" />
         </div>
       </div>
     </div>
   </header>
+
+  <Teleport to="body">
+    <div v-if="showLangDrawer" class="lang-drawer-overlay" @click="showLangDrawer = false">
+      <div class="lang-drawer" @click.stop>
+        <div class="lang-drawer-title">选择语言</div>
+        <div class="lang-list">
+          <div
+            v-for="lang in languages"
+            :key="lang.code"
+            class="lang-item"
+            :class="{ active: currentLanguage === lang.code }"
+            @click="selectLanguage(lang.code)"
+          >
+            {{ lang.name }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </Teleport>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { Teleport } from 'vue'
+import { useWalletStore } from '@/stores/wallet'
 
-const currentLanguage = ref('中文')
+const walletStore = useWalletStore()
+
+const currentLanguage = ref('zh')
+const showLangDrawer = ref(false)
+
+const languages = [
+  { code: 'zh', name: '繁體中文' },
+  { code: 'en', name: 'English' },
+  { code: 'ja', name: '日本語' },
+  { code: 'ko', name: '한국어' },
+  { code: 'vi', name: 'Tiếng Việt' }
+]
 
 const handleLanguageClick = () => {
-  // 切换语言逻辑
-  currentLanguage.value = currentLanguage.value === '中文' ? 'English' : '中文'
+  showLangDrawer.value = true
+}
+
+const selectLanguage = (code: string) => {
+  currentLanguage.value = code
+  showLangDrawer.value = false
+}
+
+const handleWalletClick = () => {
+  if (walletStore.isConnected) {
+    walletStore.disconnect()
+  } else {
+    walletStore.connect()
+  }
 }
 </script>
 
@@ -97,11 +143,58 @@ const handleLanguageClick = () => {
         display: flex;
         align-items: center;
         gap: 4px;
+        cursor: pointer;
 
         .language-icon {
           width: 24px;
           height: 24px;
           object-fit: contain;
+        }
+      }
+    }
+  }
+}
+
+.lang-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.5);
+
+  .lang-drawer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 70%;
+    max-width: 280px;
+    height: 100%;
+    background: #1e1e2d;
+    padding: 20px;
+
+    .lang-drawer-title {
+      font-size: 16px;
+      font-weight: bold;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 30px;
+      padding-top: 10px;
+    }
+
+    .lang-list {
+      .lang-item {
+        padding: 14px 0;
+        font-size: 14px;
+        color: #ccc;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        cursor: pointer;
+        transition: color 0.2s ease;
+
+        &.active {
+          color: #BC68FF;
+        }
+
+        &:hover {
+          color: #fff;
         }
       }
     }
