@@ -30,7 +30,7 @@ const tabs: TabItem[] = [
     icon: '/static/tabbar/home.png',
     activeIcon: '/static/tabbar/home-active.png'
   },
-    {
+  {
     path: '/pledge',
     name: '挖矿',
     icon: '/static/tabbar/pledge.png',
