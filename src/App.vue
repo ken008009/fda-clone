@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
 import Tabbar from '@/components/Tabbar.vue'
+import AnnouncementModal from '@/components/AnnouncementModal.vue'
 import { parseUTMParams, saveUTMParams, getUTMParams } from '@/utils/utm'
 import { useUserStore } from '@/stores/user'
 
@@ -26,6 +27,7 @@ onMounted(() => {
 
 <template>
   <div id="app">
+    <AnnouncementModal />
     <router-view />
     <Tabbar />
   </div>
