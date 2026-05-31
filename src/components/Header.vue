@@ -3,11 +3,12 @@
     <div class="header-container">
       <div class="header-left">
         <img src="/static/images/logo.png" alt="Logo" class="logo" />
+        <span>FDA</span>
       </div>
       <div class="header-right">
+        <button class="connect-btn">连接钱包</button>
         <div class="language-selector" @click="handleLanguageClick">
           <img src="/static/images/language.png" alt="Language" class="language-icon" />
-          <span class="language-text">{{ currentLanguage }}</span>
         </div>
       </div>
     </div>
@@ -31,8 +32,10 @@ const handleLanguageClick = () => {
 .app-header {
   position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 414px;
+  width: 100%;
   z-index: 999;
   background: rgba(38, 2, 63, 0.95);
   backdrop-filter: blur(10px);
@@ -42,69 +45,63 @@ const handleLanguageClick = () => {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: $spacing-md $spacing-xl;
+    padding: 16px 20px;
     max-width: 1200px;
     margin: 0 auto;
 
     .header-left {
+      display: flex;
+      align-items: center;
+      gap: $spacing-sm;
+
       .logo {
-        height: 40px;
+        height: 30px;
         width: auto;
         object-fit: contain;
+      }
+
+      span {
+        font-size: 12px;
+        color: #fff;
       }
     }
 
     .header-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      .connect-btn {
+        padding: 4px 14px;
+        background: #652f76;
+        color: #fff;
+        border: none;
+        border-radius: $radius-lg;
+        font-size: 11px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all $transition-fast;
+
+        &:hover {
+          opacity: 0.9;
+          transform: translateY(-1px);
+          box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        &:active {
+          transform: translateY(0);
+        }
+      }
+
       .language-selector {
         display: flex;
         align-items: center;
-        gap: $spacing-xs;
-        cursor: pointer;
-        padding: $spacing-xs $spacing-sm;
-        border-radius: $radius-sm;
-        transition: background-color $transition-fast;
-
-        &:hover {
-          background-color: rgba(113, 39, 224, 0.2);
-        }
+        gap: 4px;
 
         .language-icon {
-          width: 20px;
-          height: 20px;
+          width: 24px;
+          height: 24px;
           object-fit: contain;
-        }
-
-        .language-text {
-          font-size: 14px;
-          color: #fff;
-          font-weight: 500;
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: $breakpoint-mobile) {
-  .app-header {
-    .header-container {
-      padding: $spacing-sm $spacing-md;
-
-      .header-left {
-        .logo {
-          height: 32px;
-        }
-      }
-
-      .header-right {
-        .language-selector {
-          .language-icon {
-            width: 18px;
-            height: 18px;
-          }
-
-          .language-text {
-            font-size: 12px;
-          }
         }
       }
     }

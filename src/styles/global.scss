@@ -1,5 +1,12 @@
 @use './variables.scss' as *;
 
+// 隐藏滚动条
+::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0;
+  display: none;
+}
+
 // CSS Reset
 *,
 *::before,
@@ -21,33 +28,20 @@ body {
   background-color: $bg-secondary;
   color: $text-primary;
   background-image: url('/static/images/page-bg.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+  background-position: top center;
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+}
+
+body {
+  margin: 0;
 }
 
 #app {
   min-height: 100vh;
-}
-
-// 滚动条样式
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: $bg-secondary;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #c0c0c0;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #a0a0a0;
+  max-width: 414px;
+  margin: 0 auto;
+  position: relative;
 }
 
 // 链接样式

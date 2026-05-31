@@ -70,8 +70,10 @@ const handleTabClick = (path: string) => {
 .tabbar {
   position: fixed;
   bottom: 0;
-  left: 0;
-  right: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 414px;
+  width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -90,8 +92,8 @@ const handleTabClick = (path: string) => {
     padding: $spacing-xs $spacing-lg;
 
     img {
-      width: 27px;
-      height: 27px;
+      width: 24px;
+      height: 24px;
       object-fit: contain;
       transition: transform $transition-fast;
     }
@@ -116,25 +118,6 @@ const handleTabClick = (path: string) => {
     &:hover {
       .tab-label {
         color: $text-secondary;
-      }
-    }
-  }
-}
-
-@media (max-width: $breakpoint-mobile) {
-  .tabbar {
-    padding: $spacing-xs 0;
-
-    .tab-item {
-      padding: $spacing-xs $spacing-md;
-
-      img {
-        width: 20px;
-        height: 20px;
-      }
-
-      .tab-label {
-        font-size: 11px;
       }
     }
   }

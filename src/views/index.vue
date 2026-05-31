@@ -4,50 +4,59 @@
 
     <div class="content">
       <div class="welcome-card">
-        <h2 class="welcome">欢迎使用 FDA NFT 平台</h2>
-        <p class="subtitle">基于 Vue 3 + Web3 构建</p>
+        <div class="welcome-title">
+          <span>Fuminda</span>
+        </div>
+        <div class="welcome-subtitle">web 3.0全链去中心化服务平台</div>
+        <div class="welcome-description">基于BSC链的创新智能协议、提供RWA、聚合支付、Defi、链游等服务</div>
       </div>
 
       <div class="features">
-        <div class="feature-item">
-          <h3 class="feature-title">钱包连接</h3>
-          <p class="feature-desc">支持 MetaMask 等主流钱包</p>
-        </div>
-        <div class="feature-item">
-          <h3 class="feature-title">NFT 市场</h3>
-          <p class="feature-desc">浏览和交易 NFT 资产</p>
-        </div>
-        <div class="feature-item">
-          <h3 class="feature-title">社区互动</h3>
-          <p class="feature-desc">与社区成员交流互动</p>
+        <div v-for="(feature, index) in features" :key="index" class="feature-item">
+          <div class="feature-bg">
+            <img :src="feature.bg" :alt="feature.title" class="bg-image" />
+            <div class="feature-content">
+              <img :src="feature.icon" :alt="feature.title" class="feature-icon" />
+              <div class="feature-title">{{ feature.title }}</div>
+            </div>
+          </div>
         </div>
       </div>
+      <button class="start-button" @click="handleStart">立即开始</button>
 
       <div class="advantage-section">
-        <h2 class="section-title">平台优势</h2>
-        <div class="advantage-grid">
-          <div class="advantage-card">
-            <div class="advantage-icon">
-              <img src="/static/images/index/advantage/icon-revenue-up.png" alt="收益增长" />
-            </div>
-            <h3 class="advantage-title">收益增长</h3>
-            <p class="advantage-desc">多种收益模式，持续增长</p>
+        <div class="ido-header">
+          <img src="/static/images/index/node-project.png" alt="" class="ido-icon" />
+          <h2 class="ido-title">IDO招募计划</h2>
+        </div>
+        <p class="ido-subtitle">成为Fuminda IDO，享受交易税费分红、会员收益分红和推荐奖励</p>
+        
+        <div class="ido-card">
+          <div class="ido-card-left">
+            <span class="ido-label">IDO权益</span>
           </div>
-          <div class="advantage-card">
-            <div class="advantage-icon">
-              <img src="/static/images/index/advantage/icon-security-lock.png" alt="安全可靠" />
-            </div>
-            <h3 class="advantage-title">安全可靠</h3>
-            <p class="advantage-desc">银行级安全保障</p>
-          </div>
-          <div class="advantage-card">
-            <div class="advantage-icon">
-              <img src="/static/images/index/advantage/icon-transparent-link.png" alt="透明公开" />
-            </div>
-            <h3 class="advantage-title">透明公开</h3>
-            <p class="advantage-desc">链上数据完全透明</p>
+          <div class="ido-card-right">
+            <span class="ido-limit">限量0份</span>
           </div>
         </div>
+
+        <div class="ido-price">
+          <span class="price-number">0</span>
+          <span class="price-unit">USDT/份</span>
+        </div>
+        <p class="ido-limit-text">单个账号限购 0 份</p>
+
+        <div class="ido-benefits">
+          <div v-for="(benefit, index) in benefits" :key="index" class="benefit-item">
+            <img :src="benefit.icon" :alt="benefit.title" class="benefit-icon" />
+            <div class="benefit-info">
+              <h3 class="benefit-title">{{ benefit.title }}</h3>
+              <p class="benefit-desc">{{ benefit.desc }}</p>
+            </div>
+          </div>
+        </div>
+
+        <button class="ido-btn">立即成为IDO</button>
       </div>
 
       <div class="partners-section">
@@ -63,8 +72,72 @@
 </template>
 
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
 import Header from '@/components/Header.vue'
-import '@/styles/index.scss'
+
+const router = useRouter()
+
+const handleStart = () => {
+  router.push('/pledge')
+}
+
+interface FeatureItem {
+  bg: string
+  icon: string
+  title: string
+}
+
+interface BenefitItem {
+  icon: string
+  title: string
+  desc: string
+}
+
+const features: FeatureItem[] = [
+  {
+    bg: '/static/images/output-icon-bg-DIHWgt3w.png',
+    icon: '/static/images/index/output-icon.png',
+    title: '聚合支付'
+  },
+  {
+    bg: '/static/images/module-icon-bg-weJSvE3-.png',
+    icon: '/static/images/index/module-icon.png',
+    title: '链游'
+  },
+  {
+    bg: '/static/images/chart-icon-bg-yYEAC2yW.png',
+    icon: '/static/images/index/chart-icon.png',
+    title: 'RWA'
+  }
+]
+
+const benefits: BenefitItem[] = [
+  {
+    icon: '/static/images/index/advantage01.png',
+    title: '交易税费分红',
+    desc: '获得交易买卖税各1%收益'
+  },
+  {
+    icon: '/static/images/index/advantage02.png',
+    title: '盈利税费分红',
+    desc: '获得5%的盈利税费分红'
+  },
+  {
+    icon: '/static/images/index/advantage03.png',
+    title: '推荐奖励',
+    desc: '推荐IDO可以获得10%的直推奖励'
+  },
+  {
+    icon: '/static/images/index/advantage04.png',
+    title: '代币空投',
+    desc: '获得1050枚FDA代币空投，逐步释放'
+  },
+  {
+    icon: '/static/images/index/advantage05.png',
+    title: '做市商分红',
+    desc: '获得3%做市商利润加权分红'
+  }
+]
 </script>
 
 <style lang="scss" scoped>
@@ -72,7 +145,6 @@ import '@/styles/index.scss'
 
 .index-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   position: relative;
   overflow-x: hidden;
   padding-top: 64px;
@@ -92,127 +164,250 @@ import '@/styles/index.scss'
 }
 
 .content {
-  padding: 32px;
   position: relative;
   z-index: 1;
 }
 
 .welcome-card {
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 24px;
-  padding: 48px 32px;
+  width: 100%;
+  height: 400px;
+  background: url('/static/images/index/pledge/hero-CvxrCMfG.png') no-repeat center;
+  background-size: cover;
   margin-bottom: 32px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 140px 0 0;
   animation: slideUp 0.3s ease;
 
-  .welcome {
-    font-size: 32px;
-    font-weight: bold;
-    color: #333;
-    margin: 0 0 16px 0;
+  .welcome-title {
+    span {
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+      font-family: 'Bahnschrift', 'Arial', sans-serif;
+    }
   }
 
-  .subtitle {
-    font-size: 16px;
-    color: #666;
-    margin: 0;
+  .welcome-subtitle {
+    font-size: 22px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  }
+
+  .welcome-description {
+    font-size: 13px;
+    color: #fff;
+    text-align: center;
+    margin-top: 20px;
+    padding: 0 60px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    line-height: 1.6;
   }
 }
 
 .features {
+  padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
   margin-bottom: 32px;
 
   .feature-item {
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 16px;
-    padding: 24px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-    backdrop-filter: blur(10px);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
     cursor: pointer;
-    animation: slideUp 0.3s ease;
 
-    &:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    .feature-bg {
+      position: relative;
+      width: 95px;
+      margin: 0 auto;
+
+      .bg-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 12px;
+      }
     }
 
-    .feature-title {
-      font-size: 20px;
-      font-weight: bold;
-      color: #333;
-      margin: 0 0 8px 0;
+    .feature-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transform: translate(-50%, calc(-50% - 8px));
+
+      .feature-icon {
+        width: 46px;
+        height: 46px;
+        object-fit: contain;
+      }
+
+      .feature-title {
+        margin-top: 6px;
+        color: #fff;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 1;
+        text-align: center;
+        white-space: nowrap;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+      }
     }
 
-    .feature-desc {
-      font-size: 14px;
-      color: #666;
-      margin: 0;
-      line-height: 1.6;
-    }
   }
 }
 
+.start-button {
+    width: 100%;
+    padding: 12px 0;
+    background: linear-gradient(180deg, #E689FF 0%, #C489FF 51%, #9399FF 100%);
+    color: #000;
+    font-size: 17px;
+    font-weight: 500;
+    border: none;
+    border-radius: 24px;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 20px;
+}
+
 .advantage-section {
-  padding: 48px 0;
-  background: #fff;
+  padding: 24px 20px;
+  background-image: linear-gradient(180deg, rgba(42, 46, 60, .36), rgba(64, 62, 101, .4));
   border-radius: 24px;
   margin-bottom: 32px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  border: 1px solid rgba(113, 39, 224, 0.2);
 
-  .section-title {
-    font-size: 28px;
-    font-weight: bold;
-    color: #333;
-    text-align: center;
-    margin: 0 0 32px 0;
+  .ido-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+
+    .ido-icon {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+    }
+
+    .ido-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+      margin: 0;
+    }
   }
 
-  .advantage-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 32px;
-    padding: 0 32px;
+  .ido-subtitle {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0 0 16px 0;
+    line-height: 1.5;
+  }
 
-    .advantage-card {
-      text-align: center;
-      padding: 24px;
+  .ido-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background: rgba(113, 39, 224, 0.1);
+    border-radius: 12px;
+    border: 1px solid rgba(113, 39, 224, 0.3);
+    margin-bottom: 24px;
 
-      .advantage-icon {
-        width: 80px;
-        height: 80px;
-        margin: 0 auto 16px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: linear-gradient(135deg, #667eea, #764ba2);
-        border-radius: 50%;
+    .ido-label {
+      font-size: 16px;
+      font-weight: bold;
+      color: #fff;
+    }
 
-        img {
-          width: 40px;
-          height: 40px;
-          object-fit: contain;
+    .ido-limit {
+      font-size: 14px;
+      color: #C489FF;
+    }
+  }
+
+  .ido-price {
+    text-align: center;
+    margin-bottom: 4px;
+
+    .price-number {
+      font-size: 36px;
+      font-weight: bold;
+      color: #C489FF;
+    }
+
+    .price-unit {
+      font-size: 16px;
+      color: #fff;
+      margin-left: 4px;
+    }
+  }
+
+  .ido-limit-text {
+    text-align: center;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0 0 24px 0;
+  }
+
+  .ido-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+
+    .benefit-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      .benefit-icon {
+        width: 48px;
+        height: 48px;
+        object-fit: contain;
+        flex-shrink: 0;
+      }
+
+      .benefit-info {
+        .benefit-title {
+          font-size: 16px;
+          font-weight: bold;
+          color: #fff;
+          margin: 0 0 4px 0;
+        }
+
+        .benefit-desc {
+          font-size: 13px;
+          color: rgba(255, 255, 255, 0.6);
+          margin: 0;
         }
       }
-
-      .advantage-title {
-        font-size: 18px;
-        font-weight: bold;
-        color: #333;
-        margin: 0 0 8px 0;
-      }
-
-      .advantage-desc {
-        font-size: 14px;
-        color: #666;
-        margin: 0;
-        line-height: 1.6;
-      }
     }
+  }
+
+  .ido-btn {
+    width: 100%;
+    padding: 14px 0;
+    background: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 24px;
+    cursor: pointer;
+    text-align: center;
   }
 }
 
@@ -265,59 +460,6 @@ import '@/styles/index.scss'
   to {
     transform: translateY(0);
     opacity: 1;
-  }
-}
-
-@media (max-width: 768px) {
-  .header {
-    padding: 16px;
-
-    .title {
-      font-size: 20px;
-    }
-  }
-
-  .content {
-    padding: 16px;
-  }
-
-  .welcome-card {
-    padding: 24px 16px;
-
-    .welcome {
-      font-size: 24px;
-    }
-  }
-
-  .features {
-    grid-template-columns: 1fr;
-  }
-
-  .advantage-section {
-    padding: 24px 0;
-    margin-bottom: 24px;
-
-    .section-title {
-      font-size: 22px;
-    }
-
-    .advantage-grid {
-      grid-template-columns: 1fr;
-      padding: 0 16px;
-    }
-  }
-
-  .partners-section {
-    padding: 24px 0;
-
-    .section-title {
-      font-size: 22px;
-    }
-
-    .partners-grid {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
   }
 }
 </style>
