@@ -59,6 +59,22 @@
         <button class="ido-btn">立即成为IDO</button>
       </div>
 
+      <div class="nft-section">
+        <div class="nft-header">
+          <img src="/static/images/index/icon-nft-benefit.png" alt="" class="nft-icon" />
+          <h2 class="nft-title">IDO招募计划</h2>
+        </div>
+        <img src="/static/images/index/nft-benefits-module.png" alt="NFT权益" class="nft-image" />
+        <p class="nft-hint">需10个IDO获得NFT</p>
+        <p class="nft-desc">成功推荐十份IDO即可获得一张限量NFT!享受做市商2%全球利润分红，NFT总发行300张</p>
+        <div class="nft-progress">
+          <div class="progress-bar">
+            <span class="progress-num"></span>
+          </div>
+          <span class="progress-text">还需10份IDO获取NFT</span>
+        </div>
+      </div>
+
       <div class="partners-section">
         <h2 class="section-title">合作伙伴</h2>
         <div class="partners-grid">
@@ -408,6 +424,87 @@ const benefits: BenefitItem[] = [
     border-radius: 24px;
     cursor: pointer;
     text-align: center;
+  }
+}
+
+.nft-section {
+  padding: 24px 20px;
+  background-image: linear-gradient(180deg, rgba(42, 46, 60, .36), rgba(64, 62, 101, .4));
+  border-radius: 24px;
+  margin-bottom: 32px;
+  border: 1px solid rgba(113, 39, 224, 0.2);
+
+  .nft-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+
+    .nft-icon {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+    }
+
+    .nft-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+      margin: 0;
+    }
+  }
+
+  .nft-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 16px;
+  }
+
+  .nft-hint {
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    color: #903BFF;
+    margin: 0 0 12px 0;
+  }
+
+  .nft-desc {
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    font-size: 13px;
+    color: #EBEBEB;
+    line-height: 1.6;
+    margin: 0 0 16px 0;
+    text-align: center;
+  }
+
+  .nft-progress {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .progress-bar {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      width: 80px;
+      height: 32px;
+      background: url('/static/images/index/nft-referral-progress-bar.png') no-repeat center;
+      background-size: cover;
+      padding-right: 8px;
+
+      .progress-num {
+        font-size: 14px;
+        color: #EBEBEB;
+      }
+    }
+
+    .progress-text {
+      font-size: 13px;
+      color: #EBEBEB;
+    }
   }
 }
 
