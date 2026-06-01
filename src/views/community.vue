@@ -39,7 +39,6 @@
             <span class="stats-label">个人已赎回业绩</span>
           </div>
           <div class="stats-item relative">
-            <span class="arrow-icon">></span>
             <span class="stats-num">0</span>
             <span class="stats-label">团队已赎回业绩</span>
           </div>
@@ -130,14 +129,6 @@ import Header from '@/components/Header.vue'
 
     &.relative {
       position: relative;
-    }
-
-    .arrow-icon {
-      position: absolute;
-      top: 4px;
-      right: 4px;
-      font-size: 12px;
-      color: $text-muted;
     }
 
     .stats-num {

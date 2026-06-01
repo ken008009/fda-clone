@@ -92,8 +92,8 @@ const handleTabClick = (path: string) => {
     padding: $spacing-xs $spacing-lg;
 
     img {
-      width: 32px;
-      height: 32px;
+      width: 28px;
+      height: 28px;
       object-fit: contain;
       transition: all $transition-fast;
     }
@@ -105,11 +105,6 @@ const handleTabClick = (path: string) => {
     }
 
     &.active {
-      img {
-        width: 24px;
-        height: 24px;
-      }
-
       .tab-label {
         color: $brand-gold;
         font-weight: 500;
