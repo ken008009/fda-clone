@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router'
+import i18n from '@/i18n'
 
 const routes: RouteRecordRaw[] = [
   {
@@ -19,7 +20,7 @@ const routes: RouteRecordRaw[] = [
     name: 'Community',
     component: () => import('@/views/community.vue'),
     meta: {
-      title: '社区'
+      title: 'route.community'
     }
   },
   {
@@ -27,7 +28,7 @@ const routes: RouteRecordRaw[] = [
     name: 'Pledge',
     component: () => import('@/views/pledge.vue'),
     meta: {
-      title: '质押'
+      title: 'route.pledge'
     }
   },
   {
@@ -35,7 +36,7 @@ const routes: RouteRecordRaw[] = [
     name: 'Mine',
     component: () => import('@/views/mine.vue'),
     meta: {
-      title: '我的'
+      title: 'route.mine'
     }
   }
 ]
@@ -43,6 +44,13 @@ const routes: RouteRecordRaw[] = [
 const router = createRouter({
   history: createWebHistory(),
   routes
+})
+
+router.beforeEach((to) => {
+  const title = to.meta.title as string
+  if (title) {
+    document.title = title.startsWith('route.') ? i18n.global.t(title) : title
+  }
 })
 
 export default router

@@ -7,8 +7,8 @@
       :class="{ active: isActive(tab.path) }"
       @click="handleTabClick(tab.path)"
     >
-      <img :src="isActive(tab.path) ? tab.activeIcon : tab.icon" :alt="tab.name" />
-      <span class="tab-label">{{ tab.name }}</span>
+      <img :src="isActive(tab.path) ? tab.activeIcon : tab.icon" :alt="$t(tab.name)" />
+      <span class="tab-label">{{ $t(tab.name) }}</span>
     </div>
   </div>
 </template>
@@ -26,25 +26,25 @@ interface TabItem {
 const tabs: TabItem[] = [
   {
     path: '/index',
-    name: '首页',
+    name: 'tab.home',
     icon: '/static/tabbar/home.svg',
     activeIcon: '/static/tabbar/home-active.svg'
   },
   {
     path: '/pledge',
-    name: '挖矿',
+    name: 'tab.mining',
     icon: '/static/tabbar/pledge.svg',
     activeIcon: '/static/tabbar/pledge-active.svg'
   },
   {
     path: '/community',
-    name: '社区',
+    name: 'tab.community',
     icon: '/static/tabbar/community.svg',
     activeIcon: '/static/tabbar/community-active.svg'
   },
   {
     path: '/mine',
-    name: '我的',
+    name: 'tab.mine',
     icon: '/static/tabbar/mine.svg',
     activeIcon: '/static/tabbar/mine-active.svg'
   }

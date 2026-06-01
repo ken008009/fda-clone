@@ -9,8 +9,8 @@
           <div class="welcome-title">
             <WelcomeLogo />
           </div>
-          <div class="welcome-subtitle">全球首个 AI 溯源应用链</div>
-          <div class="welcome-description">数字文明的价值溯源网络</div>
+          <div class="welcome-subtitle">{{ $t('index.welcomeSubtitle') }}</div>
+          <div class="welcome-description">{{ $t('index.welcomeDescription') }}</div>
         </div>
       </div>
 
@@ -20,67 +20,67 @@
             <img :src="feature.bg" :alt="feature.title" class="bg-image" />
             <div class="feature-content">
               <img :src="feature.icon" :alt="feature.title" class="feature-icon" />
-              <div class="feature-title">{{ feature.title }}</div>
+              <div class="feature-title">{{ $t(feature.title) }}</div>
             </div>
           </div>
         </div>
       </div>
-      <button class="start-button" @click="handleStart">立即开始</button>
+      <button class="start-button" @click="handleStart">{{ $t('index.startNow') }}</button>
 
       <div class="advantage-section">
         <div class="ido-header">
           <img src="/static/images/index/node-project.png" alt="" class="ido-icon" />
-          <h2 class="ido-title">IDO招募计划</h2>
+          <h2 class="ido-title">{{ $t('index.idoRecruitPlan') }}</h2>
         </div>
-        <p class="ido-subtitle">成为Fuminda IDO，享受交易税费分红、会员收益分红和推荐奖励</p>
+        <p class="ido-subtitle">{{ $t('index.idoSubtitle') }}</p>
         
         <div class="ido-card">
           <div class="ido-card-left">
-            <span class="ido-label">IDO权益</span>
+            <span class="ido-label">{{ $t('index.idoRights') }}</span>
           </div>
           <div class="ido-card-right">
-            <span class="ido-limit">限量0份</span>
+            <span class="ido-limit">{{ $t('index.limited', { count: 0 }) }}</span>
           </div>
         </div>
 
         <div class="ido-price">
           <span class="price-number">0</span>
-          <span class="price-unit">USDT/份</span>
+          <span class="price-unit">{{ $t('index.usdtPerShare') }}</span>
         </div>
-        <p class="ido-limit-text">单个账号限购 0 份</p>
+        <p class="ido-limit-text">{{ $t('index.accountLimit', { count: 0 }) }}</p>
 
         <div class="ido-benefits">
           <div v-for="(benefit, index) in benefits" :key="index" class="benefit-item">
             <img :src="benefit.icon" :alt="benefit.title" class="benefit-icon" />
             <div class="benefit-info">
-              <h3 class="benefit-title">{{ benefit.title }}</h3>
-              <p class="benefit-desc">{{ benefit.desc }}</p>
+              <h3 class="benefit-title">{{ $t(benefit.title) }}</h3>
+              <p class="benefit-desc">{{ $t(benefit.desc) }}</p>
             </div>
           </div>
         </div>
 
-        <button class="ido-btn">立即成为IDO</button>
+        <button class="ido-btn">{{ $t('index.becomeIdo') }}</button>
       </div>
 
       <div class="nft-section">
         <div class="nft-header">
           <img src="/static/images/index/icon-nft-benefit.png" alt="" class="nft-icon" />
-          <h2 class="nft-title">IDO招募计划</h2>
+          <h2 class="nft-title">{{ $t('index.idoRecruitPlan') }}</h2>
         </div>
-        <img src="/static/images/index/nft-benefits-module.png" alt="NFT权益" class="nft-image" />
-        <p class="nft-hint">需10个IDO获得NFT</p>
-        <p class="nft-desc">成功推荐十份IDO即可获得一张限量NFT!享受做市商2%全球利润分红，NFT总发行300张</p>
+        <img src="/static/images/index/nft-benefits-module.png" :alt="$t('index.nftRights')" class="nft-image" />
+        <p class="nft-hint">{{ $t('index.nftRequirement') }}</p>
+        <p class="nft-desc">{{ $t('index.nftDesc') }}</p>
         <div class="nft-progress">
           <div class="progress-bar">
             <span class="progress-num"></span>
           </div>
-          <span class="progress-text">还需10份IDO获取NFT</span>
+          <span class="progress-text">{{ $t('index.nftProgress') }}</span>
         </div>
       </div>
 
       <StrengthSection />
 
-      <h2 class="partners-title">合作机构</h2>
+      <h2 class="partners-title">{{ $t('index.partners') }}</h2>
       <PartnersWall />
     </div>
   </div>
@@ -116,45 +116,45 @@ const features: FeatureItem[] = [
   {
     bg: '/static/images/output-icon-bg-DIHWgt3w.png',
     icon: '/static/images/index/output-icon.png',
-    title: '聚合支付'
+    title: 'index.featureTitles[0]'
   },
   {
     bg: '/static/images/module-icon-bg-weJSvE3-.png',
     icon: '/static/images/index/module-icon.png',
-    title: '链游'
+    title: 'index.featureTitles[1]'
   },
   {
     bg: '/static/images/chart-icon-bg-yYEAC2yW.png',
     icon: '/static/images/index/chart-icon.png',
-    title: 'RWA'
+    title: 'index.featureTitles[2]'
   }
 ]
 
 const benefits: BenefitItem[] = [
   {
     icon: '/static/images/index/advantage01.png',
-    title: '交易税费分红',
-    desc: '获得交易买卖税各1%收益'
+    title: 'index.benefit_txfee',
+    desc: 'index.benefit_txfeeDesc'
   },
   {
     icon: '/static/images/index/advantage02.png',
-    title: '盈利税费分红',
-    desc: '获得5%的盈利税费分红'
+    title: 'index.benefit_profit',
+    desc: 'index.benefit_profitDesc'
   },
   {
     icon: '/static/images/index/advantage03.png',
-    title: '推荐奖励',
-    desc: '推荐IDO可以获得10%的直推奖励'
+    title: 'index.benefit_referral',
+    desc: 'index.benefit_referralDesc'
   },
   {
     icon: '/static/images/index/advantage04.png',
-    title: '代币空投',
-    desc: '获得1050枚FDA代币空投，逐步释放'
+    title: 'index.benefit_airdrop',
+    desc: 'index.benefit_airdropDesc'
   },
   {
     icon: '/static/images/index/advantage05.png',
-    title: '做市商分红',
-    desc: '获得3%做市商利润加权分红'
+    title: 'index.benefit_maker',
+    desc: 'index.benefit_makerDesc'
   }
 ]
 </script>

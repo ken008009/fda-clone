@@ -5,57 +5,57 @@
       <div class="info-card">
         <div class="user-row">
           <span class="address-tag">0x2e24...c33e</span>
-          <span>等级:</span>
+          <span>{{ $t('community.level') }}</span>
           <span class="level-text">F0</span>
         </div>
 
         <div class="stats-grid">
           <div class="stats-item">
             <span class="stats-num">0</span>
-            <span class="stats-label">布道人数</span>
+            <span class="stats-label">{{ $t('community.evangelists') }}</span>
           </div>
           <div class="stats-item">
             <span class="stats-num">0</span>
-            <span class="stats-label">有效用户</span>
+            <span class="stats-label">{{ $t('community.activeUsers') }}</span>
           </div>
           <div class="stats-item">
             <span class="stats-num">0</span>
-            <span class="stats-label">社区人数</span>
+            <span class="stats-label">{{ $t('community.communitySize') }}</span>
           </div>
           <div class="stats-item">
             <span class="stats-num">0.00 U</span>
-            <span class="stats-label">累计收益</span>
+            <span class="stats-label">{{ $t('community.totalIncome') }}</span>
           </div>
           <div class="stats-item">
             <span class="stats-num">0 U</span>
-            <span class="stats-label">社区业绩</span>
+            <span class="stats-label">{{ $t('community.communityPerformance') }}</span>
           </div>
           <div class="stats-item">
             <span class="stats-num">0</span>
-            <span class="stats-label">团队IDO总量</span>
+            <span class="stats-label">{{ $t('community.teamIdoTotal') }}</span>
           </div>
           <div class="stats-item">
             <span class="stats-num">0</span>
-            <span class="stats-label">个人已赎回业绩</span>
+            <span class="stats-label">{{ $t('community.personalRedeemed') }}</span>
           </div>
           <div class="stats-item relative">
             <span class="stats-num">0</span>
-            <span class="stats-label">团队已赎回业绩</span>
+            <span class="stats-label">{{ $t('community.teamRedeemed') }}</span>
           </div>
         </div>
       </div>
 
-      <h3 class="list-title">布道列表</h3>
+      <h3 class="list-title">{{ $t('community.evangelistList') }}</h3>
 
       <div class="table-card">
         <div class="table-header">
-          <span>钱包地址</span>
-          <span>用户等级</span>
-          <span>个人业绩</span>
-          <span>团队业绩</span>
+          <span>{{ $t('community.walletAddress') }}</span>
+          <span>{{ $t('community.userLevel') }}</span>
+          <span>{{ $t('community.personalPerformance') }}</span>
+          <span>{{ $t('community.teamPerformance') }}</span>
         </div>
         <div class="empty-state">
-          <p>暂无数据</p>
+          <p>{{ $t('common.noData') }}</p>
         </div>
       </div>
 

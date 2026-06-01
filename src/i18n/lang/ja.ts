@@ -1,0 +1,109 @@
+export default {
+  common: {
+    connectWallet: 'ウォレット接続',
+    selectLanguage: '言語選択',
+    noData: 'データなし'
+  },
+  index: {
+    welcomeSubtitle: '世界初のAIトレースアプリチェーン',
+    welcomeDescription: 'デジタル文明の価値トレースネットワーク',
+    startNow: '今すぐ開始',
+    idoRecruitPlan: 'IDO募集計画',
+    idoSubtitle: 'Fuminda IDOになり、取引税配当、会員収益配当、推薦報酬を享受',
+    idoRights: 'IDO権益',
+    limited: '限定{count}部',
+    usdtPerShare: 'USDT/部',
+    accountLimit: 'アカウント1つにつき{count}部限定',
+    featureTitles: ['集約決済', 'チェーンゲーム', 'RWA'],
+    benefit_txfee: '取引税配当',
+    benefit_txfeeDesc: '売買税各1%の収益を獲得',
+    benefit_profit: '利益税配当',
+    benefit_profitDesc: '利益税の5%配当を獲得',
+    benefit_referral: '推薦報酬',
+    benefit_referralDesc: 'IDO推薦で10%の直接推薦報酬',
+    benefit_airdrop: 'トークンエアドロップ',
+    benefit_airdropDesc: '1050 FDAトークンエアドロップ、段階的解放',
+    benefit_maker: 'メーカー配当',
+    benefit_makerDesc: 'メーカー利益の3%加重配当',
+    becomeIdo: 'IDOになる',
+    nftRequirement: '10 IDOでNFT獲得',
+    nftDesc: '10部IDO推薦成功で限定NFT1枚獲得！メーカー2%グローバル利益配当、NFT総発行300枚',
+    nftProgress: 'あと10部IDOでNFT獲得',
+    nftRights: 'NFT権益',
+    partners: '協力機構'
+  },
+  community: {
+    level: 'レベル:',
+    evangelists: '布道者数',
+    activeUsers: '有効ユーザー',
+    communitySize: 'コミュニティ人数',
+    totalIncome: '累計収益',
+    communityPerformance: 'コミュニティ業績',
+    teamIdoTotal: 'チームIDO総量',
+    personalRedeemed: '個人償還業績',
+    teamRedeemed: 'チーム償還業績',
+    evangelistList: '布道リスト',
+    walletAddress: 'ウォレットアドレス',
+    userLevel: 'ユーザーレベル',
+    personalPerformance: '個人業績',
+    teamPerformance: 'チーム業績'
+  },
+  mine: {
+    tokenAirdrop: 'トークンエアドロップ',
+    claimableAmount: '受取可能額',
+    pendingAmount: '待解放額',
+    claimedAmount: '受取済額',
+    totalNodes: '総ノード数',
+    releaseCountdown: '解放カウントダウン',
+    none: 'なし',
+    claimAirdrop: 'エアドロップ受取',
+    claimRecord: '受取記録',
+    time: '時間',
+    amount: '金額'
+  },
+  pledge: {
+    currentAssets: '現在資産',
+    startMining: 'マイニング開始',
+    pledge: 'ステーク',
+    selectCycle: 'ステーク期間選択',
+    days: '日',
+    dailyCompound: '日複利',
+    availableBalance: '利用可能残高：',
+    enterPledgeAmount: 'ステーク金額を入力',
+    max: 'MAX',
+    minPledge: '最低ステーク：',
+    maxPledge: '最高ステーク：',
+    estimatedProfit: '想定収益:',
+    pledgeNow: '今すぐステーク'
+  },
+  tab: {
+    home: 'ホーム',
+    mining: 'マイニング',
+    community: 'コミュニティ',
+    mine: 'マイ'
+  },
+  route: {
+    community: 'コミュニティ',
+    pledge: 'ステーク',
+    mine: 'マイ'
+  },
+  advantage: {
+    title: '優位性',
+    revenueTag: '高収益',
+    revenueDesc: '最適化された収益アルゴリズムで業界最高水準のステークリターンを提供',
+    transparentTag: '透明公開',
+    transparentDesc: 'すべての取引と収益データはオンチェーンで確認可能、完全に透明公開',
+    securityTag: '安全安心',
+    securityDesc: 'BSCチェーンのスマートコントラクトが資産の安全を確保'
+  },
+  wallet: {
+    installMetaMask: 'MetaMaskウォレットをインストールしてください',
+    connectFailed: 'ウォレット接続に失敗しました',
+    fetchBalanceFailed: '残高の取得に失敗しました'
+  },
+  announcement: {
+    title: 'お知らせ',
+    confirm: '確認',
+    noRemind: '次回から表示しない'
+  }
+}

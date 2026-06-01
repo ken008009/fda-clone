@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import i18n from '@/i18n'
 import { ref, computed } from 'vue'
 
 export interface WalletProvider {
@@ -57,11 +58,11 @@ export const useWalletStore = defineStore(
           provider.value.on('accountsChanged', handleAccountsChanged)
           provider.value.on('chainChanged', handleChainChanged)
         } else {
-          alert('请安装 MetaMask 钱包')
+          alert(i18n.global.t('wallet.installMetaMask'))
         }
       } catch (error) {
         console.error('钱包连接失败:', error)
-        alert('钱包连接失败')
+        alert(i18n.global.t('wallet.connectFailed'))
       }
     }
 

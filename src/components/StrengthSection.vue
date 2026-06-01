@@ -1,6 +1,6 @@
 <template>
   <div class="strength-section">
-    <h2 class="section-title">优势</h2>
+    <h2 class="section-title">{{ $t('advantage.title') }}</h2>
     <div ref="wrapperRef" class="carousel-wrapper">
       <div ref="trackRef" class="carousel-track" :style="trackStyle">
         <div
@@ -10,11 +10,11 @@
           :class="{ active: i === activeIndex }"
         >
           <div class="card-border">
-            <div class="card-tag">{{ card.tag }}</div>
+            <div class="card-tag">{{ $t(card.tag) }}</div>
             <div class="card-inner">
-              <img :src="card.illustration" :alt="card.tag" class="card-illustration" />
-              <img :src="card.icon" :alt="card.tag" class="card-icon" />
-              <p class="card-desc">{{ card.desc }}</p>
+              <img :src="card.illustration" :alt="$t(card.tag)" class="card-illustration" />
+              <img :src="card.icon" :alt="$t(card.tag)" class="card-icon" />
+              <p class="card-desc">{{ $t(card.desc) }}</p>
             </div>
           </div>
         </div>
@@ -35,22 +35,22 @@ interface StrengthCard {
 
 const cards: StrengthCard[] = [
   {
-    tag: '高效收益',
+    tag: 'advantage.revenueTag',
     illustration: '/static/images/index/advantage/illustration-revenue-growth.png',
     icon: '/static/images/index/advantage/icon-revenue-up.png',
-    desc: '优化的收益算法，提供行业领先的质押回报率'
+    desc: 'advantage.revenueDesc'
   },
   {
-    tag: '透明公开',
+    tag: 'advantage.transparentTag',
     illustration: '/static/images/index/advantage/illustration-data-transparent.png',
     icon: '/static/images/index/advantage/icon-transparent-link.png',
-    desc: '所有交易和收益数据上链可查，完全透明公开'
+    desc: 'advantage.transparentDesc'
   },
   {
-    tag: '安全可靠',
+    tag: 'advantage.securityTag',
     illustration: '/static/images/index/advantage/illustration-security-shield.png',
     icon: '/static/images/index/advantage/icon-security-lock.png',
-    desc: '基于BSC链的智能合约确保资产安全'
+    desc: 'advantage.securityDesc'
   }
 ]
 

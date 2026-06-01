@@ -3,30 +3,30 @@
     <div class="wall-row" data-direction="normal">
       <div class="wall-track">
         <div v-for="i in row1Logos" :key="i" class="wall-item">
-          <img :src="`/static/images/index/partners/partner-${i}.png`" :alt="`合作伙伴 ${i}`" />
+          <img :src="`/static/images/index/partners/partner-${i}.png`" :alt="`Partner ${i}`" />
         </div>
         <div v-for="i in row1Logos" :key="`dup-${i}`" class="wall-item">
-          <img :src="`/static/images/index/partners/partner-${i}.png`" :alt="`合作伙伴 ${i}`" />
+          <img :src="`/static/images/index/partners/partner-${i}.png`" :alt="`Partner ${i}`" />
         </div>
       </div>
     </div>
     <div class="wall-row" data-direction="reverse">
       <div class="wall-track">
         <div v-for="i in row2Logos" :key="i" class="wall-item">
-          <img :src="`/static/images/index/partners/partner-${i}.png`" :alt="`合作伙伴 ${i}`" />
+          <img :src="`/static/images/index/partners/partner-${i}.png`" :alt="`Partner ${i}`" />
         </div>
         <div v-for="i in row2Logos" :key="`dup-${i}`" class="wall-item">
-          <img :src="`/static/images/index/partners/partner-${i}.png`" :alt="`合作伙伴 ${i}`" />
+          <img :src="`/static/images/index/partners/partner-${i}.png`" :alt="`Partner ${i}`" />
         </div>
       </div>
     </div>
     <div class="wall-row" data-direction="normal">
       <div class="wall-track">
         <div v-for="i in row3Logos" :key="i" class="wall-item">
-          <img :src="`/static/images/index/partners/partner-${i}.png`" :alt="`合作伙伴 ${i}`" />
+          <img :src="`/static/images/index/partners/partner-${i}.png`" :alt="`Partner ${i}`" />
         </div>
         <div v-for="i in row3Logos" :key="`dup-${i}`" class="wall-item">
-          <img :src="`/static/images/index/partners/partner-${i}.png`" :alt="`合作伙伴 ${i}`" />
+          <img :src="`/static/images/index/partners/partner-${i}.png`" :alt="`Partner ${i}`" />
         </div>
       </div>
     </div>

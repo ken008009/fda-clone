@@ -2,7 +2,7 @@
   <div class="pledge-page">
     <Header />
     <div class="container">
-      <img src="/static/images/index/pledge/hero.png" alt="质押" class="hero-image" />
+      <img src="/static/images/index/pledge/hero.png" :alt="$t('pledge.pledge')" class="hero-image" />
 
       <div class="number-container">
         <template v-for="(item, index) in digitLayout" :key="index">
@@ -17,21 +17,21 @@
         </template>
       </div>
 
-      <p class="asset-label">当前资产</p>
+      <p class="asset-label">{{ $t('pledge.currentAssets') }}</p>
 
-      <button class="mining-btn" @click="modalVisible = true">开始挖矿</button>
+      <button class="mining-btn" @click="modalVisible = true">{{ $t('pledge.startMining') }}</button>
 
       <Teleport to="body">
         <div v-if="modalVisible" class="modal-overlay" @click="modalVisible = false">
           <div class="modal-content" @click.stop>
             <div class="modal-header">
               <span></span>
-              <span class="modal-title">质押</span>
+              <span class="modal-title">{{ $t('pledge.pledge') }}</span>
               <span class="modal-close" @click="modalVisible = false">×</span>
             </div>
 
             <div class="modal-body">
-              <p class="section-label">选择质押周期</p>
+              <p class="section-label">{{ $t('pledge.selectCycle') }}</p>
               <div class="cycle-list">
                 <div
                   v-for="cycle in cycles"
@@ -41,7 +41,7 @@
                   @click="selectedCycle = cycle.days"
                 >
                   <div class="cycle-header">
-                    <span>{{ cycle.days }}天</span>
+                    <span>{{ cycle.days }}{{ $t('pledge.days') }}</span>
                     <img
                       :src="selectedCycle === cycle.days ? '/static/images/up-active.png' : '/static/images/up-inactive.png'"
                       class="cycle-icon"
@@ -49,19 +49,19 @@
                   </div>
                   <div class="cycle-rate">
                     <span class="rate-num">{{ cycle.rate }}%</span>
-                    <span class="rate-label">日复利</span>
+                    <span class="rate-label">{{ $t('pledge.dailyCompound') }}</span>
                   </div>
                 </div>
               </div>
 
-              <p class="balance-text">可用余额：<span class="highlight">0.00 USDT</span></p>
+              <p class="balance-text">{{ $t('pledge.availableBalance') }}<span class="highlight">0.00 USDT</span></p>
 
               <div class="input-row">
                 <div class="input-wrap">
                   <input
                     v-model="amount"
                     type="number"
-                    placeholder="请输入质押金额"
+                    :placeholder="$t('pledge.enterPledgeAmount')"
                     class="amount-input"
                   />
                 </div>
@@ -69,16 +69,16 @@
               </div>
 
               <div class="limit-row">
-                <span>最低质押：<span class="highlight">1USDT</span></span>
-                <span>最高质押：<span class="highlight">1000USDT</span></span>
+                <span>{{ $t('pledge.minPledge') }}<span class="highlight">1USDT</span></span>
+                <span>{{ $t('pledge.maxPledge') }}<span class="highlight">1000USDT</span></span>
               </div>
 
               <div class="profit-row">
-                <span>预计收益:</span>
+                <span>{{ $t('pledge.estimatedProfit') }}</span>
                 <span class="highlight">0 USDT</span>
               </div>
 
-              <button class="submit-btn" @click="handleSubmit">立即质押</button>
+              <button class="submit-btn" @click="handleSubmit">{{ $t('pledge.pledgeNow') }}</button>
             </div>
           </div>
         </div>

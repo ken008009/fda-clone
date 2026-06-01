@@ -7,33 +7,33 @@
         <div class="card-content">
           <div class="card-header">
             <img src="/static/homeLogo.webp" alt="FDA" class="card-logo" />
-            <h2 class="card-title">代币空投</h2>
+            <h2 class="card-title">{{ $t('mine.tokenAirdrop') }}</h2>
           </div>
 
           <div class="stats-list">
             <div class="stats-row">
-              <span class="stats-name">可领取金额</span>
+              <span class="stats-name">{{ $t('mine.claimableAmount') }}</span>
               <span class="stats-value green">0 FDA</span>
             </div>
             <div class="stats-row">
-              <span class="stats-name">待释放金额</span>
+              <span class="stats-name">{{ $t('mine.pendingAmount') }}</span>
               <span class="stats-value yellow">0 FDA</span>
             </div>
             <div class="stats-row">
-              <span class="stats-name">已领取金额</span>
+              <span class="stats-name">{{ $t('mine.claimedAmount') }}</span>
               <span class="stats-value green">0 FDA</span>
             </div>
             <div class="stats-row">
-              <span class="stats-name">总节点数</span>
+              <span class="stats-name">{{ $t('mine.totalNodes') }}</span>
               <span class="stats-value yellow">0</span>
             </div>
             <div class="stats-row">
-              <span class="stats-name">释放倒计时</span>
-              <span class="stats-value purple">无</span>
+              <span class="stats-name">{{ $t('mine.releaseCountdown') }}</span>
+              <span class="stats-value purple">{{ $t('mine.none') }}</span>
             </div>
           </div>
 
-          <button class="claim-btn">领取空投</button>
+          <button class="claim-btn">{{ $t('mine.claimAirdrop') }}</button>
         </div>
         <div class="deco-circle top"></div>
         <div class="deco-circle bottom"></div>
@@ -42,16 +42,16 @@
       <div class="record-section">
         <div class="section-title-wrap">
           <div class="title-bar"></div>
-          <h3 class="section-title">领取记录</h3>
+          <h3 class="section-title">{{ $t('mine.claimRecord') }}</h3>
         </div>
 
         <div class="table-card">
           <div class="table-header">
-            <span>时间</span>
-            <span>金额</span>
+            <span>{{ $t('mine.time') }}</span>
+            <span>{{ $t('mine.amount') }}</span>
           </div>
           <div class="empty-state">
-            <p>暂无数据</p>
+            <p>{{ $t('common.noData') }}</p>
           </div>
         </div>
       </div>

@@ -7,7 +7,7 @@
       </div>
       <div class="header-right">
         <button class="connect-btn" @click="handleWalletClick">
-          {{ walletStore.isConnected ? walletStore.shortAddress : '连接钱包' }}
+          {{ walletStore.isConnected ? walletStore.shortAddress : $t('common.connectWallet') }}
         </button>
         <div class="language-selector" @click="handleLanguageClick">
           <img src="/static/images/language.png" alt="Language" class="language-icon" />
@@ -19,7 +19,7 @@
   <Teleport to="body">
     <div v-if="showLangDrawer" class="lang-drawer-overlay" @click="showLangDrawer = false">
       <div class="lang-drawer" @click.stop>
-        <div class="lang-drawer-title">选择语言</div>
+        <div class="lang-drawer-title">{{ $t('common.selectLanguage') }}</div>
         <div class="lang-list">
           <div
             v-for="lang in languages"
@@ -37,29 +37,36 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { Teleport } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useWalletStore } from '@/stores/wallet'
 
 const walletStore = useWalletStore()
+const { locale } = useI18n()
 
-const currentLanguage = ref('zh')
+const currentLanguage = ref(locale.value)
 const showLangDrawer = ref(false)
 
 const languages = [
-  { code: 'zh', name: '繁體中文' },
+  { code: 'zh', name: '简体中文' },
+  { code: 'zh-tw', name: '繁體中文' },
   { code: 'en', name: 'English' },
   { code: 'ja', name: '日本語' },
   { code: 'ko', name: '한국어' },
   { code: 'vi', name: 'Tiếng Việt' }
 ]
 
+watch(locale, (val) => {
+  currentLanguage.value = val
+})
+
 const handleLanguageClick = () => {
   showLangDrawer.value = true
 }
 
 const selectLanguage = (code: string) => {
-  currentLanguage.value = code
+  locale.value = code
   showLangDrawer.value = false
 }
 

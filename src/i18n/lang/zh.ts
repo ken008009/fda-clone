@@ -1,0 +1,109 @@
+export default {
+  common: {
+    connectWallet: '连接钱包',
+    selectLanguage: '选择语言',
+    noData: '暂无数据'
+  },
+  index: {
+    welcomeSubtitle: '全球首个 AI 溯源应用链',
+    welcomeDescription: '数字文明的价值溯源网络',
+    startNow: '立即开始',
+    idoRecruitPlan: 'IDO招募计划',
+    idoSubtitle: '成为Fuminda IDO，享受交易税费分红、会员收益分红和推荐奖励',
+    idoRights: 'IDO权益',
+    limited: '限量{count}份',
+    usdtPerShare: 'USDT/份',
+    accountLimit: '单个账号限购 {count} 份',
+    featureTitles: ['聚合支付', '链游', 'RWA'],
+    benefit_txfee: '交易税费分红',
+    benefit_txfeeDesc: '获得交易买卖税各1%收益',
+    benefit_profit: '盈利税费分红',
+    benefit_profitDesc: '获得5%的盈利税费分红',
+    benefit_referral: '推荐奖励',
+    benefit_referralDesc: '推荐IDO可以获得10%的直推奖励',
+    benefit_airdrop: '代币空投',
+    benefit_airdropDesc: '获得1050枚FDA代币空投，逐步释放',
+    benefit_maker: '做市商分红',
+    benefit_makerDesc: '获得3%做市商利润加权分红',
+    becomeIdo: '立即成为IDO',
+    nftRequirement: '需10个IDO获得NFT',
+    nftDesc: '成功推荐十份IDO即可获得一张限量NFT!享受做市商2%全球利润分红，NFT总发行300张',
+    nftProgress: '还需10份IDO获取NFT',
+    nftRights: 'NFT权益',
+    partners: '合作机构'
+  },
+  community: {
+    level: '等级:',
+    evangelists: '布道人数',
+    activeUsers: '有效用户',
+    communitySize: '社区人数',
+    totalIncome: '累计收益',
+    communityPerformance: '社区业绩',
+    teamIdoTotal: '团队IDO总量',
+    personalRedeemed: '个人已赎回业绩',
+    teamRedeemed: '团队已赎回业绩',
+    evangelistList: '布道列表',
+    walletAddress: '钱包地址',
+    userLevel: '用户等级',
+    personalPerformance: '个人业绩',
+    teamPerformance: '团队业绩'
+  },
+  mine: {
+    tokenAirdrop: '代币空投',
+    claimableAmount: '可领取金额',
+    pendingAmount: '待释放金额',
+    claimedAmount: '已领取金额',
+    totalNodes: '总节点数',
+    releaseCountdown: '释放倒计时',
+    none: '无',
+    claimAirdrop: '领取空投',
+    claimRecord: '领取记录',
+    time: '时间',
+    amount: '金额'
+  },
+  pledge: {
+    currentAssets: '当前资产',
+    startMining: '开始挖矿',
+    pledge: '质押',
+    selectCycle: '选择质押周期',
+    days: '天',
+    dailyCompound: '日复利',
+    availableBalance: '可用余额：',
+    enterPledgeAmount: '请输入质押金额',
+    max: 'MAX',
+    minPledge: '最低质押：',
+    maxPledge: '最高质押：',
+    estimatedProfit: '预计收益:',
+    pledgeNow: '立即质押'
+  },
+  tab: {
+    home: '首页',
+    mining: '挖矿',
+    community: '社区',
+    mine: '我的'
+  },
+  route: {
+    community: '社区',
+    pledge: '质押',
+    mine: '我的'
+  },
+  advantage: {
+    title: '优势',
+    revenueTag: '高效收益',
+    revenueDesc: '优化的收益算法，提供行业领先的质押回报率',
+    transparentTag: '透明公开',
+    transparentDesc: '所有交易和收益数据上链可查，完全透明公开',
+    securityTag: '安全可靠',
+    securityDesc: '基于BSC链的智能合约确保资产安全'
+  },
+  wallet: {
+    installMetaMask: '请安装 MetaMask 钱包',
+    connectFailed: '钱包连接失败',
+    fetchBalanceFailed: '获取余额失败'
+  },
+  announcement: {
+    title: '公告',
+    confirm: '确认',
+    noRemind: '不再提醒'
+  }
+}
