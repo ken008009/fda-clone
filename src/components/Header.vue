@@ -2,7 +2,7 @@
   <header class="app-header">
     <div class="header-container">
       <div class="header-left">
-        <img src="/static/images/logo.png" alt="Logo" class="logo" />
+        <img src="/static/homeLogo.webp" alt="Logo" class="logo" />
         <span>FDA</span>
       </div>
       <div class="header-right">

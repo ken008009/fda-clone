@@ -6,7 +6,7 @@
         <div class="card-bg"></div>
         <div class="card-content">
           <div class="card-header">
-            <img src="/static/images/logo.png" alt="FDA" class="card-logo" />
+            <img src="/static/homeLogo.webp" alt="FDA" class="card-logo" />
             <h2 class="card-title">代币空投</h2>
           </div>
 

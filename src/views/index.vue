@@ -4,11 +4,14 @@
 
     <div class="content">
       <div class="welcome-card">
-        <div class="welcome-title">
-          <span>Fuminda</span>
+        <GoldWaveBackground />
+        <div class="welcome-content">
+          <div class="welcome-title">
+            <WelcomeLogo />
+          </div>
+          <div class="welcome-subtitle">全球首个 AI 溯源应用链</div>
+          <div class="welcome-description">数字文明的价值溯源网络</div>
         </div>
-        <div class="welcome-subtitle">web 3.0全链去中心化服务平台</div>
-        <div class="welcome-description">基于BSC链的创新智能协议、提供RWA、聚合支付、Defi、链游等服务</div>
       </div>
 
       <div class="features">
@@ -86,6 +89,8 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
 import Header from '@/components/Header.vue'
+import GoldWaveBackground from '@/components/GoldWaveBackground.vue'
+import WelcomeLogo from '@/components/WelcomeLogo.vue'
 import StrengthSection from '@/components/StrengthSection.vue'
 import PartnersWall from '@/components/PartnersWall.vue'
 
@@ -185,43 +190,60 @@ const benefits: BenefitItem[] = [
 .welcome-card {
   width: 100%;
   height: 400px;
-  background: url('/static/images/index/pledge/hero-CvxrCMfG.png') no-repeat center;
-  background-size: cover;
   margin-bottom: 32px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 140px 0 0;
+  justify-content: center;
+  overflow: hidden;
   animation: slideUp 0.3s ease;
 
-  .welcome-title {
-    span {
-      font-size: 24px;
-      font-weight: bold;
-      color: #fff;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-      font-family: 'Bahnschrift', 'Arial', sans-serif;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    // background: linear-gradient(to bottom, transparent, $bg-main);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .welcome-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    mix-blend-mode: lighten;
+
+    .welcome-title {
+      width: 100%;
+      text-align: center;
     }
-  }
 
-  .welcome-subtitle {
-    font-size: 22px;
-    font-weight: bold;
-    color: #fff;
-    text-align: center;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-  }
+    .welcome-subtitle {
+      font-size: 22px;
+      font-weight: 800;
+      margin-top: 24px;
+      background: linear-gradient(135deg, #C0C0C0 0%, #FFFFFF 50%, #A0A0A0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
 
-  .welcome-description {
-    font-size: 13px;
-    color: #fff;
-    text-align: center;
-    margin-top: 20px;
-    padding: 0 60px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    line-height: 1.6;
+    .welcome-description {
+      margin-top: 16px;
+      padding: 6px 24px;
+      font-size: 14px;
+      color: $brand-gold;
+      background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+      display: inline-block;
+      line-height: 1.5;
+    }
   }
 }
 
