@@ -6,11 +6,9 @@
       <div class="welcome-card">
         <GoldWaveBackground />
         <div class="welcome-content">
-          <div class="welcome-title">
-            <img src="/assets/logo.png" alt="Logo" class="logo" />
-          </div>
-          <div class="welcome-subtitle">{{ $t('index.welcomeSubtitle') }}</div>
-          <div class="welcome-description">{{ $t('index.welcomeDescription') }}</div>
+          <img src="/assets/logo.png" alt="Logo" class="logo active-logo" />
+          <div class="welcome-subtitle">Taurus Protocol</div>
+          <div class="welcome-description">全球首个AI公链、支付、链游为一体的超级应用</div>
         </div>
       </div>
 
@@ -90,7 +88,6 @@
 import { useRouter } from 'vue-router'
 import Header from '@/components/Header.vue'
 import GoldWaveBackground from '@/components/GoldWaveBackground.vue'
-import WelcomeLogo from '@/components/WelcomeLogo.vue'
 import StrengthSection from '@/components/StrengthSection.vue'
 import PartnersWall from '@/components/PartnersWall.vue'
 
@@ -220,21 +217,18 @@ const benefits: BenefitItem[] = [
     text-align: center;
     mix-blend-mode: lighten;
 
-    .welcome-title {
-      width: 100%;
-      text-align: center;
-
-      .logo {
-        width: 200px;
-        height: auto;
-      }
+    .logo {
+      margin-top: 50px;
+      width: 200px;
+      height: auto;
     }
 
     .welcome-subtitle {
-      font-size: 22px;
+      font-size: 32px;
       font-weight: 800;
-      margin-top: 24px;
-      background: linear-gradient(135deg, #C0C0C0 0%, #FFFFFF 50%, #A0A0A0 100%);
+      background: linear-gradient(135deg, rgba(236, 208, 165, 0.8) 0%, #FFFFFF 50%, rgba(236, 208, 165, 0.8) 100%);
+      background-size: 200% 100%;
+      animation: gradient-move 5s linear infinite;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -242,9 +236,10 @@ const benefits: BenefitItem[] = [
 
     .welcome-description {
       margin-top: 16px;
-      padding: 6px 24px;
-      font-size: 14px;
-      color: $brand-gold;
+      padding: 8px 24px;
+      font-size: 16px;
+      font-weight: 500;
+      color: rgba(236, 208, 165, 1);
       background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
       display: inline-block;
       line-height: 1.5;
@@ -563,6 +558,62 @@ const benefits: BenefitItem[] = [
   to {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+@keyframes activeLogoBreathJump {
+  0% {
+    transform: translateY(0);
+    opacity: 0.8;
+  }
+  10% {
+    transform: translateY(-8px);
+    opacity: 0.9;
+  }
+  25% {
+    transform: translateY(-25px);
+    opacity: 1;
+  }
+  40% {
+    transform: translateY(-12px);
+    opacity: 0.95;
+  }
+  50% {
+    transform: translateY(0);
+    opacity: 0.8;
+  }
+  60% {
+    transform: translateY(-6px);
+    opacity: 0.85;
+  }
+  75% {
+    transform: translateY(-15px);
+    opacity: 0.9;
+  }
+  85% {
+    transform: translateY(-8px);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0.8;
+  }
+}
+
+.active-logo {
+  will-change: transform, opacity;
+  animation: activeLogoBreathJump 10s infinite ease-in-out;
+}
+
+@keyframes gradient-move {
+  0% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
   }
 }
 </style>

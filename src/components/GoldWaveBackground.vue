@@ -15,8 +15,8 @@ let particles: THREE.Points | null = null
 let rafId = 0
 let count = 0
 
-const SEPARATION = 40
-const AMOUNTX = 60
+const SEPARATION = 35
+const AMOUNTX = 65
 const AMOUNTY = 40
 
 onMounted(() => {
@@ -42,9 +42,14 @@ onMounted(() => {
   let i = 0
   for (let ix = 0; ix < AMOUNTX; ix++) {
     for (let iy = 0; iy < AMOUNTY; iy++) {
+      // 使用非线性分布，让上方（小 iy）密集，下方（大 iy）稀疏
+      const normalizedY = iy / AMOUNTY
+      const nonLinearY = 1 - (1 - normalizedY) * (1 - normalizedY) // 反向平方函数
+      const zPos = nonLinearY * (AMOUNTY * SEPARATION) - ((AMOUNTY * SEPARATION) / 2)
+
       positions[i] = ix * SEPARATION - ((AMOUNTX * SEPARATION) / 2)
       positions[i + 1] = 0
-      positions[i + 2] = iy * SEPARATION - ((AMOUNTY * SEPARATION) / 2)
+      positions[i + 2] = zPos
       i += 3
     }
   }
@@ -54,7 +59,7 @@ onMounted(() => {
 
   // 金黄色粒子材质
   const material = new THREE.PointsMaterial({
-    color: 0xFFD700,
+    color: 0xECD0A5,
     size: 3.5,
     transparent: true,
     opacity: 1
