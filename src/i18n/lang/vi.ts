@@ -2,11 +2,30 @@ export default {
   common: {
     connectWallet: 'Kết nối ví',
     selectLanguage: 'Chọn ngôn ngữ',
-    noData: 'Chưa có dữ liệu'
+    noData: 'Chưa có dữ liệu',
+    confirm: 'Xác nhận',
+    prompt: 'Nhắc nhở',
+    comingSoon: 'Sắp ra mắt',
+    submit: 'Gửi',
+    enterInviteCode: 'Vui lòng nhập mã mời'
   },
   index: {
     welcomeSubtitle: 'Chuỗi ứng dụng truy xuất AI đầu tiên trên thế giới',
     welcomeDescription: 'Mạng lưới truy xuất giá trị của nền văn minh số',
+    welcomeDescription2: 'Ứng dụng siêu cấp đầu tiên trên thế giới tích hợp AI Public Chain, Thanh toán & Trò chơi chuỗi',
+    projectInfoTitle1: '一、Kết hợp AI và lợi thế kỹ thuật',
+    totalSupply: 'Tổng nguồn cung token: 800 triệu',
+    nodeOutput: 'Đầu ra Node：',
+    blockInterval: 'Khoảng thời gian khối：3 seconds/block',
+    blocksPerDay: 'Số khối mỗi 24h：22300',
+    scenariosTitle: '二、Kịch bản thực tế',
+    chainLaunch: 'Taurus Chain（Ra mắt giữa tháng 2/2027）',
+    miningLaunch: 'Taurus Mining（Đang hoạt động）',
+    paymentLaunch: 'Thanh toán trên chuỗi（Đang hoạt động）',
+    gameBeta: 'Trò chơi trên chuỗi（Beta, tháng 11/2026）',
+    mallLaunch: 'Mall trên chuỗi（Đang hoạt động）',
+    techTitle: '三、Kiến trúc kỹ thuật',
+    techDesc: 'Lưu trữ phân tán：Nền tảng của chúng tôi quy tụ nhiều nhà phát triển và doanh nghiệp, thúc đẩy sự hợp tác chặt chẽ giữa các chuyên gia AI, doanh nhân và đối tác, cùng nhau thúc đẩy công nghệ',
     startNow: 'Bắt đầu ngay',
     idoRecruitPlan: 'Kế hoạch tuyển IDO',
     idoSubtitle: 'Trở thành Fuminda IDO, hưởng phân chia phí giao dịch, phân chia lợi nhuận thành viên và thưởng giới thiệu',
@@ -76,11 +95,28 @@ export default {
     estimatedProfit: 'Lợi nhuận dự kiến:',
     pledgeNow: 'Stake ngay'
   },
+  node: {
+    pageTitle: 'Đăng ký Node',
+    pageSubtitle: 'Chọn cấp độ Node phù hợp với bạn',
+    subscribed: 'Đã đăng ký',
+    statusAvailable: 'Có thể đăng ký',
+    statusFull: 'Đã bán hết',
+    statusComing: 'Sắp ra mắt',
+    subscribeNow: 'Đăng ký ngay'
+  },
   tab: {
     home: 'Trang chủ',
     mining: 'Đào',
     community: 'Cộng đồng',
-    mine: 'Của tôi'
+    mine: 'Của tôi',
+    nodeSubscription: 'Đăng ký Node',
+    pledgeMining: 'Khai thác Stake',
+    myTeam: 'Đội của tôi',
+    myAssets: 'Tài sản của tôi',
+    internationalPayment: 'Thanh toán quốc tế',
+    chainGames: 'Trò chơi chuỗi',
+    chainGamesBeta: 'Đang thử nghiệm beta, ra mắt tháng 11/2026',
+    taurusChain: 'Taurus Chain'
   },
   route: {
     community: 'Cộng đồng',
@@ -104,6 +140,8 @@ export default {
   announcement: {
     title: 'Thông báo',
     confirm: 'Xác nhận',
-    noRemind: 'Không nhắc lại'
+    noRemind: 'Không nhắc lại',
+    content: 'Taurus đã chính thức ra mắt',
+    gotIt: 'Đã hiểu'
   }
 }

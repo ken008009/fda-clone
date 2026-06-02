@@ -2,11 +2,30 @@ export default {
   common: {
     connectWallet: '連接錢包',
     selectLanguage: '選擇語言',
-    noData: '暫無數據'
+    noData: '暫無數據',
+    confirm: '確定',
+    prompt: '提示',
+    comingSoon: '暫未開放',
+    submit: '提交',
+    enterInviteCode: '請輸入邀請碼'
   },
   index: {
     welcomeSubtitle: '全球首個 AI 溯源應用鏈',
     welcomeDescription: '數字文明的價值溯源網絡',
+    welcomeDescription2: '全球首個AI公鏈、支付、鏈遊為一體的超級應用',
+    projectInfoTitle1: '一、結合AI人工智能與技術優勢',
+    totalSupply: '代幣總發行量8億枚',
+    nodeOutput: '節點輸出：',
+    blockInterval: '塊輸出間隔：3 seconds/block',
+    blocksPerDay: '每24小時區塊：22300',
+    scenariosTitle: '二、實用場景',
+    chainLaunch: 'Taurus 公鏈（將在2027年2月中旬正式上線）',
+    miningLaunch: 'Taurus 挖礦（已上線）',
+    paymentLaunch: '鏈上支付（已上線）',
+    gameBeta: '鏈上遊戲（內測中2026年11月份上線）',
+    mallLaunch: '鏈上商城（已上線）',
+    techTitle: '三、技術架構',
+    techDesc: '分佈式存儲：我們的平台匯聚了眾多開發者與企業，促進了AI智能領域專業人士、企業家及合作夥伴間的緊密合作，共同推動科技',
     startNow: '立即開始',
     idoRecruitPlan: 'IDO招募計劃',
     idoSubtitle: '成為Fuminda IDO，享受交易稅費分紅、會員收益分紅和推薦獎勵',
@@ -76,11 +95,28 @@ export default {
     estimatedProfit: '預計收益:',
     pledgeNow: '立即質押'
   },
+  node: {
+    pageTitle: '節點認購',
+    pageSubtitle: '選擇適合您的節點檔位',
+    subscribed: '已認購',
+    statusAvailable: '可認購',
+    statusFull: '已售罄',
+    statusComing: '即將開放',
+    subscribeNow: '立即認購'
+  },
   tab: {
     home: '首頁',
     mining: '挖礦',
     community: '社區',
-    mine: '我的'
+    mine: '我的',
+    nodeSubscription: '節點認購',
+    pledgeMining: '質押挖礦',
+    myTeam: '我的團隊',
+    myAssets: '我的資產',
+    internationalPayment: '國際支付',
+    chainGames: '鏈上遊戲',
+    chainGamesBeta: '內測中2026年11月份上線',
+    taurusChain: 'Taurus公鏈'
   },
   route: {
     community: '社區',
@@ -104,6 +140,8 @@ export default {
   announcement: {
     title: '公告',
     confirm: '確認',
-    noRemind: '不再提醒'
+    noRemind: '不再提醒',
+    content: 'Taurus 正式上線啦',
+    gotIt: '我知道了'
   }
 }

@@ -34,6 +34,7 @@
     <Modal
       :visible="showModal"
       :message="modalMessage"
+      :confirm-text="$t('common.confirm')"
       @close="showModal = false"
       @confirm="showModal = false"
     />
@@ -48,6 +49,8 @@ import { useWalletStore } from '@/stores/wallet'
 import { formatAddress } from '@/utils/util'
 import Modal from '@/components/Modal.vue'
 
+const { t: $t } = useI18n()
+
 interface MenuItem {
   path: string
   name: string
@@ -55,6 +58,7 @@ interface MenuItem {
   externalUrl?: string
   disabled?: boolean
   disabledMessage?: string
+  disabledMessageKey?: string
 }
 
 const props = defineProps<{
@@ -68,7 +72,6 @@ const emit = defineEmits<{
 
 const router = useRouter()
 const route = useRoute()
-const { locale } = useI18n()
 const walletStore = useWalletStore()
 
 const showModal = ref(false)
@@ -76,29 +79,17 @@ const modalMessage = ref('')
 
 const menuItems: MenuItem[] = [
   { path: '/index', name: 'tab.home' },
-  { path: '/node', name: '节点认购' },
-  { path: '/pledge', name: '质押挖矿' },
-  { path: '/community', name: '我的团队' },
-  { path: '/mine', name: '我的资产' },
-  { path: '/international-payment', name: '国际支付', external: true, externalUrl: 'https://www.ispaychain.com/?code=0x0b57d116D292dBF4FFd9C979606D9D9EAea0e0a2' },
-  { path: '/chain-games', name: '链上游戏', disabled: true, disabledMessage: '内测中2026年11月份上线' },
-  { path: '/taurus-chain', name: 'Taurus公链', disabled: true }
+  { path: '/node', name: 'tab.nodeSubscription' },
+  { path: '/pledge', name: 'tab.pledgeMining' },
+  { path: '/community', name: 'tab.myTeam' },
+  { path: '/mine', name: 'tab.myAssets' },
+  { path: '/international-payment', name: 'tab.internationalPayment', external: true, externalUrl: 'https://www.ispaychain.com/?code=0x0b57d116D292dBF4FFd9C979606D9D9EAea0e0a2' },
+  { path: '/chain-games', name: 'tab.chainGames', disabled: true, disabledMessageKey: 'tab.chainGamesBeta' },
+  { path: '/taurus-chain', name: 'tab.taurusChain', disabled: true }
 ]
 
 const userAddress = computed(() => {
   return formatAddress(walletStore.address)
-})
-
-const currentLanguage = computed(() => {
-  const langMap: Record<string, string> = {
-    zh: '简体中文',
-    'zh-tw': '繁體中文',
-    en: 'English',
-    ja: '日本語',
-    ko: '한국어',
-    vi: 'Tiếng Việt'
-  }
-  return langMap[locale.value] || locale.value
 })
 
 const isActive = (path: string) => {
@@ -115,7 +106,7 @@ const handleOverlayClick = () => {
 
 const handleNavClick = (item: MenuItem) => {
   if (item.disabled) {
-    modalMessage.value = item.disabledMessage || '暂未开放'
+    modalMessage.value = item.disabledMessageKey ? $t(item.disabledMessageKey) : (item.disabledMessage || $t('common.comingSoon'))
     showModal.value = true
     return
   }
@@ -127,10 +118,6 @@ const handleNavClick = (item: MenuItem) => {
     }
   }
   close()
-}
-
-const handleLanguageClick = () => {
-  emit('languageClick')
 }
 
 const handleCopyAddress = async () => {

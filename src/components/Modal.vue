@@ -29,9 +29,9 @@ const props = withDefaults(
     closeOnOverlay?: boolean
   }>(),
   {
-    title: '提示',
+    title: '',
     message: '',
-    confirmText: '确定',
+    confirmText: '',
     closeOnOverlay: true
   }
 )

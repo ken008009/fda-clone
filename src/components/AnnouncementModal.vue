@@ -11,11 +11,11 @@
         <h1 class="modal-title">{{ $t('announcement.title') }}</h1>
 
         <div class="modal-content">
-         <p>Taurus 正式上线啦</p>
+         <p>{{ $t('announcement.content') }}</p>
         </div>
 
         <div class="modal-footer">
-          <button class="confirm-btn" @click="handleClose">我知道了</button>
+          <button class="confirm-btn" @click="handleClose">{{ $t('announcement.gotIt') }}</button>
           <p class="no-remind" @click="handleNoRemind">{{ $t('announcement.noRemind') }}</p>
         </div>
       </div>

@@ -8,7 +8,7 @@
         <div class="welcome-content">
           <img src="/assets/logo.png" alt="Logo" class="logo active-logo" />
           <div class="welcome-subtitle">Taurus Protocol</div>
-          <div class="welcome-description">全球首个AI公链、支付、链游为一体的超级应用</div>
+          <div class="welcome-description">{{ $t('index.welcomeDescription2') }}</div>
         </div>
       </div>
 
@@ -48,30 +48,30 @@
 
         <div class="project-info">
           <div class="info-section">
-            <h4 class="section-title">一、结合AI人工智能与技术优势</h4>
+            <h4 class="section-title">{{ $t('index.projectInfoTitle1') }}</h4>
             <div class="info-content">
-              <p class="info-item">1. 代币总发行量8亿枚</p>
-              <p class="info-item">2. 节点输出：</p>
-              <p class="info-subitem">块输出间隔：3 seconds/block</p>
-              <p class="info-subitem">每24小时区块：22300</p>
+              <p class="info-item">1. {{ $t('index.totalSupply') }}</p>
+              <p class="info-item">2. {{ $t('index.nodeOutput') }}</p>
+              <p class="info-subitem">{{ $t('index.blockInterval') }}</p>
+              <p class="info-subitem">{{ $t('index.blocksPerDay') }}</p>
             </div>
           </div>
 
           <div class="info-section">
-            <h4 class="section-title">二、实用场景</h4>
+            <h4 class="section-title">{{ $t('index.scenariosTitle') }}</h4>
             <div class="info-content">
-              <p class="info-item">1：Taurus 公链（将在2027年2月中旬正式上线）</p>
-              <p class="info-item">2：Taurus 挖矿（已上线）</p>
-              <p class="info-item">3：链上支付（已上线）</p>
-              <p class="info-item">4：链上游戏（内测中2026年11月份上线）</p>
-              <p class="info-item">5：链上商城（已上线）</p>
+              <p class="info-item">1：{{ $t('index.chainLaunch') }}</p>
+              <p class="info-item">2：{{ $t('index.miningLaunch') }}</p>
+              <p class="info-item">3：{{ $t('index.paymentLaunch') }}</p>
+              <p class="info-item">4：{{ $t('index.gameBeta') }}</p>
+              <p class="info-item">5：{{ $t('index.mallLaunch') }}</p>
             </div>
           </div>
 
           <div class="info-section">
-            <h4 class="section-title">三、技术架构</h4>
+            <h4 class="section-title">{{ $t('index.techTitle') }}</h4>
             <div class="info-content">
-              <p class="info-item">分布式存储：我们的平台汇聚了众多开发者与企业，促进了AI智能领域专业人士、企业家及合作伙伴间的紧密合作，共同推动科技</p>
+              <p class="info-item">{{ $t('index.techDesc') }}</p>
             </div>
           </div>
         </div>
@@ -104,15 +104,16 @@
     <Modal
       :visible="showModal"
       :message="modalMessage"
+      :confirm-text="$t('common.confirm')"
       @close="showModal = false"
       @confirm="showModal = false"
     />
 
     <InputModal
       :visible="showInputModal"
-      message="请输入邀请码"
+      :message="$t('common.enterInviteCode')"
       placeholder="0x..."
-      confirm-text="提交"
+      :confirm-text="$t('common.submit')"
       @close="showInputModal = false"
       @confirm="handleSuperiorConfirm"
     />
@@ -122,6 +123,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import Header from '@/components/Header.vue'
 import GoldWaveBackground from '@/components/GoldWaveBackground.vue'
 import StrengthSection from '@/components/StrengthSection.vue'
@@ -130,6 +132,7 @@ import Modal from '@/components/Modal.vue'
 import InputModal from '@/components/InputModal.vue'
 
 const router = useRouter()
+const { t: $t } = useI18n()
 
 const showModal = ref(false)
 const modalMessage = ref('')
@@ -162,7 +165,7 @@ const handleGoToNode = () => {
 
 const handleFeatureClick = (feature: FeatureItem) => {
   if (feature.disabled) {
-    modalMessage.value = feature.disabledMessage || '暂未开放'
+    modalMessage.value = feature.disabledMessageKey ? $t(feature.disabledMessageKey) : (feature.disabledMessage || $t('common.comingSoon'))
     showModal.value = true
     return
   }
@@ -179,13 +182,14 @@ interface FeatureItem {
   externalUrl?: string
   disabled?: boolean
   disabledMessage?: string
+  disabledMessageKey?: string
 }
 
 const features: FeatureItem[] = [
   {
     bg: '/static/images/output-icon-bg-DIHWgt3w.png',
     icon: '/static/images/index/output-icon.png',
-    title: '支付',
+    title: 'tab.internationalPayment',
     external: true,
     externalUrl: 'https://www.ispaychain.com/?code=0x0b57d116D292dBF4FFd9C979606D9D9EAea0e0a2'
   },
@@ -194,12 +198,12 @@ const features: FeatureItem[] = [
     icon: '/static/images/index/module-icon.png',
     title: 'index.featureTitles[1]',
     disabled: true,
-    disabledMessage: '内测中2026年11月份上线'
+    disabledMessageKey: 'tab.chainGamesBeta'
   },
   {
     bg: '/static/images/chart-icon-bg-yYEAC2yW.png',
     icon: '/static/images/index/chart-icon.png',
-    title: '公链',
+    title: 'tab.taurusChain',
     disabled: true
   }
 ]

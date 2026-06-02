@@ -2,11 +2,30 @@ export default {
   common: {
     connectWallet: 'Connect Wallet',
     selectLanguage: 'Select Language',
-    noData: 'No Data'
+    noData: 'No Data',
+    confirm: 'Confirm',
+    prompt: 'Prompt',
+    comingSoon: 'Coming Soon',
+    submit: 'Submit',
+    enterInviteCode: 'Please enter invitation code'
   },
   index: {
     welcomeSubtitle: "World's First AI Traceability App Chain",
     welcomeDescription: 'Value Traceability Network of Digital Civilization',
+    welcomeDescription2: "World's First AI Public Chain, Payment & Chain Games Super App",
+    projectInfoTitle1: 'I. AI & Technical Advantages',
+    totalSupply: 'Total Token Supply: 800 Million',
+    nodeOutput: 'Node Output:',
+    blockInterval: 'Block Interval: 3 seconds/block',
+    blocksPerDay: 'Blocks per 24h: 22300',
+    scenariosTitle: 'II. Use Cases',
+    chainLaunch: 'Taurus Chain (Launching mid-Feb 2027)',
+    miningLaunch: 'Taurus Mining (Live)',
+    paymentLaunch: 'On-chain Payment (Live)',
+    gameBeta: 'On-chain Games (Beta, Nov 2026)',
+    mallLaunch: 'On-chain Mall (Live)',
+    techTitle: 'III. Technical Architecture',
+    techDesc: 'Distributed Storage: Our platform brings together developers and enterprises, fostering close collaboration among AI professionals, entrepreneurs and partners to jointly drive technological advancement',
     startNow: 'Start Now',
     idoRecruitPlan: 'IDO Recruitment Plan',
     idoSubtitle: 'Become a Fuminda IDO and enjoy trading fee dividends, membership income dividends, and referral rewards',
@@ -76,11 +95,28 @@ export default {
     estimatedProfit: 'Estimated Profit:',
     pledgeNow: 'Pledge Now'
   },
+  node: {
+    pageTitle: 'Node Subscription',
+    pageSubtitle: 'Choose a node tier that suits you',
+    subscribed: 'Subscribed',
+    statusAvailable: 'Available',
+    statusFull: 'Sold Out',
+    statusComing: 'Coming Soon',
+    subscribeNow: 'Subscribe Now'
+  },
   tab: {
     home: 'Home',
     mining: 'Mining',
     community: 'Community',
-    mine: 'Mine'
+    mine: 'Mine',
+    nodeSubscription: 'Node Subscription',
+    pledgeMining: 'Pledge Mining',
+    myTeam: 'My Team',
+    myAssets: 'My Assets',
+    internationalPayment: 'International Payment',
+    chainGames: 'Chain Games',
+    chainGamesBeta: 'Beta testing, launching Nov 2026',
+    taurusChain: 'Taurus Chain'
   },
   route: {
     community: 'Community',
@@ -104,6 +140,8 @@ export default {
   announcement: {
     title: 'Announcement',
     confirm: 'Confirm',
-    noRemind: "Don't remind again"
+    noRemind: "Don't remind again",
+    content: 'Taurus is officially live!',
+    gotIt: 'Got it'
   }
 }

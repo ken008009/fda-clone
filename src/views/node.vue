@@ -4,8 +4,8 @@
 
     <div class="content">
       <div class="page-header">
-        <h1 class="page-title">节点认购</h1>
-        <p class="page-subtitle">选择适合您的节点档位</p>
+        <h1 class="page-title">{{ $t('node.pageTitle') }}</h1>
+        <p class="page-subtitle">{{ $t('node.pageSubtitle') }}</p>
       </div>
 
       <div class="node-tiers">
@@ -22,7 +22,7 @@
           </div>
           <div class="tier-divider"></div>
           <div class="tier-info">
-            <div class="info-label">已认购</div>
+            <div class="info-label">{{ $t('node.subscribed') }}</div>
             <div class="info-value">{{ tier.subscribed }}</div>
           </div>
           <div class="tier-status" :class="tier.status">
@@ -33,7 +33,7 @@
 
       <div class="action-section">
         <button class="subscribe-btn" :disabled="!selectedTier" @click="handleSubscribe">
-          立即认购
+          {{ $t('node.subscribeNow') }}
         </button>
       </div>
     </div>
@@ -42,7 +42,10 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import Header from '@/components/Header.vue'
+
+const { t: $t } = useI18n()
 
 interface NodeTier {
   price: number
@@ -66,9 +69,9 @@ const selectTier = (price: number) => {
 
 const getStatusText = (status: NodeTier['status']) => {
   const statusMap: Record<NodeTier['status'], string> = {
-    available: '可认购',
-    full: '已售罄',
-    coming: '即将开放'
+    available: $t('node.statusAvailable'),
+    full: $t('node.statusFull'),
+    coming: $t('node.statusComing')
   }
   return statusMap[status]
 }

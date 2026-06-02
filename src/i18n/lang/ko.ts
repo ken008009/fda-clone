@@ -2,11 +2,30 @@ export default {
   common: {
     connectWallet: '지갑 연결',
     selectLanguage: '언어 선택',
-    noData: '데이터 없음'
+    noData: '데이터 없음',
+    confirm: '확인',
+    prompt: '알림',
+    comingSoon: '준비 중',
+    submit: '제출',
+    enterInviteCode: '초대 코드를 입력하세요'
   },
   index: {
     welcomeSubtitle: '세계 최초 AI 추적 앱 체인',
     welcomeDescription: '디지털 문명의 가치 추적 네트워크',
+    welcomeDescription2: '세계 최초 AI 퍼블릭 체인·결제·체인 게임 통합 슈퍼 앱',
+    projectInfoTitle1: '一、AI 인공지능과 기술 우위성 결합',
+    totalSupply: '토큰 총 발행량 8억 개',
+    nodeOutput: '노드 출력：',
+    blockInterval: '블록 출력 간격：3 seconds/block',
+    blocksPerDay: '24시간 블록 수：22300',
+    scenariosTitle: '二、실용 시나리오',
+    chainLaunch: 'Taurus 퍼블릭 체인（2027년 2월 중순 정식 출시 예정）',
+    miningLaunch: 'Taurus 마이닝（운영 중）',
+    paymentLaunch: '체인 결제（운영 중）',
+    gameBeta: '체인 게임（베타 테스트 중, 2026년 11월 출시 예정）',
+    mallLaunch: '체인 몰（운영 중）',
+    techTitle: '三、기술 아키텍처',
+    techDesc: '분산 스토리지：우리 플랫폼은 수많은 개발자와 기업을 모아 AI 분야 전문가, 기업가 및 파트너 간의 긴밀한 협력을 촉진하여 공동으로 기술을 추진합니다',
     startNow: '지금 시작',
     idoRecruitPlan: 'IDO 모집 계획',
     idoSubtitle: 'Fuminda IDO가 되어 거래세 배당, 회원 수익 배당, 추천 보상을 누리세요',
@@ -76,11 +95,28 @@ export default {
     estimatedProfit: '예상 수익:',
     pledgeNow: '지금 스테이킹'
   },
+  node: {
+    pageTitle: '노드 인수',
+    pageSubtitle: '적합한 노드 등급을 선택하세요',
+    subscribed: '인수 완료',
+    statusAvailable: '인수 가능',
+    statusFull: '매진',
+    statusComing: '곧 공개',
+    subscribeNow: '지금 인수'
+  },
   tab: {
     home: '홈',
     mining: '채굴',
     community: '커뮤니티',
-    mine: '마이'
+    mine: '마이',
+    nodeSubscription: '노드 인수',
+    pledgeMining: '스테이크 채굴',
+    myTeam: '마이 팀',
+    myAssets: '마이 자산',
+    internationalPayment: '국제 결제',
+    chainGames: '체인 게임',
+    chainGamesBeta: '베타 테스트 중, 2026년 11월 출시 예정',
+    taurusChain: 'Taurus 퍼블릭 체인'
   },
   route: {
     community: '커뮤니티',
@@ -104,6 +140,8 @@ export default {
   announcement: {
     title: '공지사항',
     confirm: '확인',
-    noRemind: '다시 보지 않기'
+    noRemind: '다시 보지 않기',
+    content: 'Taurus 가 정식 출시되었습니다',
+    gotIt: '알겠습니다'
   }
 }

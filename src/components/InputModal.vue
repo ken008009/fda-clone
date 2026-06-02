@@ -37,7 +37,7 @@ const props = withDefaults(
   {
     message: '',
     placeholder: '',
-    confirmText: '确定',
+    confirmText: '',
     closeOnOverlay: true
   }
 )
@@ -60,10 +60,6 @@ watch(
 
 const close = () => {
   emit('close')
-}
-
-const handleCancel = () => {
-  close()
 }
 
 const handleConfirm = () => {

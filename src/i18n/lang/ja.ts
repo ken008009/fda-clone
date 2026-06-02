@@ -2,11 +2,30 @@ export default {
   common: {
     connectWallet: 'ウォレット接続',
     selectLanguage: '言語選択',
-    noData: 'データなし'
+    noData: 'データなし',
+    confirm: '確定',
+    prompt: 'ヒント',
+    comingSoon: '準備中',
+    submit: '送信',
+    enterInviteCode: '招待コードを入力してください'
   },
   index: {
     welcomeSubtitle: '世界初のAIトレースアプリチェーン',
     welcomeDescription: 'デジタル文明の価値トレースネットワーク',
+    welcomeDescription2: '世界初のAIパブリックチェーン・決済・チェーンゲーム統合スーパーアプリ',
+    projectInfoTitle1: '一、AI人工知能と技術優位性の融合',
+    totalSupply: 'トークン総発行量8億枚',
+    nodeOutput: 'ノード出力：',
+    blockInterval: 'ブロック出力間隔：3 seconds/block',
+    blocksPerDay: '24時間ブロック数：22300',
+    scenariosTitle: '二、実用シナリオ',
+    chainLaunch: 'Taurus パブリックチェーン（2027年2月中旬正式リリース予定）',
+    miningLaunch: 'Taurus マイニング（稼働中）',
+    paymentLaunch: 'チェーン上決済（稼働中）',
+    gameBeta: 'チェーン上ゲーム（ベータテスト中、2026年11月リリース予定）',
+    mallLaunch: 'チェーン上モール（稼働中）',
+    techTitle: '三、技術アーキテクチャ',
+    techDesc: '分散ストレージ：当プラットフォームは多くの開発者と企業を集め、AI分野の専門家、起業家、パートナー間の緊密な協力を促進し、共に技術を推進します',
     startNow: '今すぐ開始',
     idoRecruitPlan: 'IDO募集計画',
     idoSubtitle: 'Fuminda IDOになり、取引税配当、会員収益配当、推薦報酬を享受',
@@ -76,11 +95,28 @@ export default {
     estimatedProfit: '想定収益:',
     pledgeNow: '今すぐステーク'
   },
+  node: {
+    pageTitle: 'ノード認購',
+    pageSubtitle: 'あなたに適したノードグレードを選択',
+    subscribed: '認購済み',
+    statusAvailable: '認購可能',
+    statusFull: '売り切れ',
+    statusComing: '間もなく公開',
+    subscribeNow: '今すぐ認購'
+  },
   tab: {
     home: 'ホーム',
     mining: 'マイニング',
     community: 'コミュニティ',
-    mine: 'マイ'
+    mine: 'マイ',
+    nodeSubscription: 'ノード認購',
+    pledgeMining: 'ステークマイニング',
+    myTeam: 'マイチーム',
+    myAssets: 'マイ資産',
+    internationalPayment: '国際決済',
+    chainGames: 'チェーンゲーム',
+    chainGamesBeta: 'ベータテスト中、2026年11月リリース予定',
+    taurusChain: 'Taurusパブリックチェーン'
   },
   route: {
     community: 'コミュニティ',
@@ -104,6 +140,8 @@ export default {
   announcement: {
     title: 'お知らせ',
     confirm: '確認',
-    noRemind: '次回から表示しない'
+    noRemind: '次回から表示しない',
+    content: 'Taurus が正式にリリースされました',
+    gotIt: 'わかりました'
   }
 }

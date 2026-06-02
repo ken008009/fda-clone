@@ -2,7 +2,12 @@ export default {
   common: {
     connectWallet: '连接钱包',
     selectLanguage: '选择语言',
-    noData: '暂无数据'
+    noData: '暂无数据',
+    confirm: '确定',
+    prompt: '提示',
+    comingSoon: '暂未开放',
+    submit: '提交',
+    enterInviteCode: '请输入邀请码'
   },
   index: {
     welcomeSubtitle: '全球首个 AI 溯源应用链',
@@ -25,6 +30,20 @@ export default {
     benefit_airdropDesc: '获得1050枚FDA代币空投，逐步释放',
     benefit_maker: '做市商分红',
     benefit_makerDesc: '获得3%做市商利润加权分红',
+    welcomeDescription2: '全球首个AI公链、支付、链游为一体的超级应用',
+    projectInfoTitle1: '一、结合AI人工智能与技术优势',
+    totalSupply: '代币总发行量8亿枚',
+    nodeOutput: '节点输出：',
+    blockInterval: '块输出间隔：3 seconds/block',
+    blocksPerDay: '每24小时区块：22300',
+    scenariosTitle: '二、实用场景',
+    chainLaunch: 'Taurus 公链（将在2027年2月中旬正式上线）',
+    miningLaunch: 'Taurus 挖矿（已上线）',
+    paymentLaunch: '链上支付（已上线）',
+    gameBeta: '链上游戏（内测中2026年11月份上线）',
+    mallLaunch: '链上商城（已上线）',
+    techTitle: '三、技术架构',
+    techDesc: '分布式存储：我们的平台汇聚了众多开发者与企业，促进了AI智能领域专业人士、企业家及合作伙伴间的紧密合作，共同推动科技',
     becomeIdo: '立即成为IDO',
     nftRequirement: '需10个IDO获得NFT',
     nftDesc: '成功推荐十份IDO即可获得一张限量NFT!享受做市商2%全球利润分红，NFT总发行300张',
@@ -76,11 +95,28 @@ export default {
     estimatedProfit: '预计收益:',
     pledgeNow: '立即质押'
   },
+  node: {
+    pageTitle: '节点认购',
+    pageSubtitle: '选择适合您的节点档位',
+    subscribed: '已认购',
+    statusAvailable: '可认购',
+    statusFull: '已售罄',
+    statusComing: '即将开放',
+    subscribeNow: '立即认购'
+  },
   tab: {
     home: '首页',
     mining: '挖矿',
     community: '社区',
-    mine: '我的'
+    mine: '我的',
+    nodeSubscription: '节点认购',
+    pledgeMining: '质押挖矿',
+    myTeam: '我的团队',
+    myAssets: '我的资产',
+    internationalPayment: '国际支付',
+    chainGames: '链上游戏',
+    chainGamesBeta: '内测中2026年11月份上线',
+    taurusChain: 'Taurus公链'
   },
   route: {
     community: '社区',
@@ -104,6 +140,8 @@ export default {
   announcement: {
     title: '公告',
     confirm: '确认',
-    noRemind: '不再提醒'
+    noRemind: '不再提醒',
+    content: 'Taurus 正式上线啦',
+    gotIt: '我知道了'
   }
 }
