@@ -2,8 +2,8 @@
   <header class="app-header">
     <div class="header-container">
       <div class="header-left">
-        <img src="/static/homeLogo.webp" alt="Logo" class="logo" />
-        <span>FDA</span>
+        <img src="/assets/logo.png" alt="Logo" class="logo" />
+        <span>TAURUS</span>
       </div>
       <div class="header-right">
         <button class="connect-btn" @click="handleWalletClick">
@@ -114,8 +114,10 @@ const handleWalletClick = () => {
       }
 
       span {
-        font-size: 12px;
+        font-size: 18px;
+        font-weight: bold;
         color: #fff;
+        letter-spacing: -0.5px;
       }
     }
 
@@ -125,12 +127,12 @@ const handleWalletClick = () => {
       gap: 12px;
 
       .connect-btn {
-        padding: 4px 14px;
-        background: transparent;
-        color: $brand-gold;
-        border: 1px solid $brand-gold;
-        border-radius: $radius-lg;
-        font-size: 11px;
+        padding: 8px 16px;
+        background-color: rgba(40, 40, 40, var(--un-bg-opacity, 1));
+        color: rgba(236, 208, 165, var(--un-text-opacity, 1));
+        border: 1px solid #88888844;
+        border-radius: $radius-sm;
+        font-size: 12px;
         font-weight: 500;
         cursor: pointer;
         transition: all $transition-fast;

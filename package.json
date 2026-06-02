@@ -1,7 +1,7 @@
 {
-  "name": "fda-clone",
+  "name": "taurus",
   "version": "1.0.0",
-  "description": "FDA NFT Platform - Vue 3 project",
+  "description": "TauTaurus Protocol",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

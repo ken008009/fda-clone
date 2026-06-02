@@ -27,26 +27,26 @@ const tabs: TabItem[] = [
   {
     path: '/index',
     name: 'tab.home',
-    icon: '/static/tabbar/home.svg',
-    activeIcon: '/static/tabbar/home-active.svg'
+    icon: '/assets/tabbar/home.svg',
+    activeIcon: '/assets/tabbar/home-active.svg'
   },
   {
     path: '/pledge',
     name: 'tab.mining',
-    icon: '/static/tabbar/pledge.svg',
-    activeIcon: '/static/tabbar/pledge-active.svg'
+    icon: '/assets/tabbar/pledge.svg',
+    activeIcon: '/assets/tabbar/pledge-active.svg'
   },
   {
     path: '/community',
     name: 'tab.community',
-    icon: '/static/tabbar/community.svg',
-    activeIcon: '/static/tabbar/community-active.svg'
+    icon: '/assets/tabbar/community.svg',
+    activeIcon: '/assets/tabbar/community-active.svg'
   },
   {
     path: '/mine',
     name: 'tab.mine',
-    icon: '/static/tabbar/mine.svg',
-    activeIcon: '/static/tabbar/mine-active.svg'
+    icon: '/assets/tabbar/mine.svg',
+    activeIcon: '/assets/tabbar/mine-active.svg'
   }
 ]
 

@@ -12,7 +12,7 @@ const routes: RouteRecordRaw[] = [
     name: 'Index',
     component: () => import('@/views/index.vue'),
     meta: {
-      title: 'FDA'
+      title: 'TAURUS'
     }
   },
   {

@@ -7,7 +7,7 @@
         <GoldWaveBackground />
         <div class="welcome-content">
           <div class="welcome-title">
-            <WelcomeLogo />
+            <img src="/assets/logo.png" alt="Logo" class="logo" />
           </div>
           <div class="welcome-subtitle">{{ $t('index.welcomeSubtitle') }}</div>
           <div class="welcome-description">{{ $t('index.welcomeDescription') }}</div>
@@ -223,6 +223,11 @@ const benefits: BenefitItem[] = [
     .welcome-title {
       width: 100%;
       text-align: center;
+
+      .logo {
+        width: 200px;
+        height: auto;
+      }
     }
 
     .welcome-subtitle {
