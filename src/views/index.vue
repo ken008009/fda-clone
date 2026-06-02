@@ -30,7 +30,6 @@
           <img src="/static/images/index/node-project.png" alt="" class="ido-icon" />
           <h2 class="ido-title">{{ $t('index.idoRecruitPlan') }}</h2>
         </div>
-        <p class="ido-subtitle">{{ $t('index.idoSubtitle') }}</p>
         
         <div class="ido-card">
           <div class="ido-card-left">
@@ -46,16 +45,6 @@
           <span class="price-unit">{{ $t('index.usdtPerShare') }}</span>
         </div>
         <p class="ido-limit-text">{{ $t('index.accountLimit', { count: 0 }) }}</p>
-
-        <div class="ido-benefits">
-          <div v-for="(benefit, index) in benefits" :key="index" class="benefit-item">
-            <img :src="benefit.icon" :alt="benefit.title" class="benefit-icon" />
-            <div class="benefit-info">
-              <h3 class="benefit-title">{{ $t(benefit.title) }}</h3>
-              <p class="benefit-desc">{{ $t(benefit.desc) }}</p>
-            </div>
-          </div>
-        </div>
 
         <button class="ido-btn">{{ $t('index.becomeIdo') }}</button>
       </div>
@@ -113,7 +102,7 @@ const features: FeatureItem[] = [
   {
     bg: '/static/images/output-icon-bg-DIHWgt3w.png',
     icon: '/static/images/index/output-icon.png',
-    title: 'index.featureTitles[0]'
+    title: '支付'
   },
   {
     bg: '/static/images/module-icon-bg-weJSvE3-.png',
@@ -123,7 +112,7 @@ const features: FeatureItem[] = [
   {
     bg: '/static/images/chart-icon-bg-yYEAC2yW.png',
     icon: '/static/images/index/chart-icon.png',
-    title: 'index.featureTitles[2]'
+    title: '公链'
   }
 ]
 
@@ -228,7 +217,7 @@ const benefits: BenefitItem[] = [
       font-weight: 800;
       background: linear-gradient(135deg, rgba(236, 208, 165, 0.8) 0%, #FFFFFF 50%, rgba(236, 208, 165, 0.8) 100%);
       background-size: 200% 100%;
-      animation: gradient-move 5s linear infinite;
+      animation: gradient-move 1s linear infinite;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;

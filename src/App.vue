@@ -29,7 +29,7 @@ onMounted(() => {
   <div id="app">
     <AnnouncementModal />
     <router-view />
-    <Tabbar />
+    <!-- <Tabbar /> -->
   </div>
 </template>
 
