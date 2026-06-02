@@ -13,7 +13,7 @@
       </div>
 
       <div class="features">
-        <div v-for="(feature, index) in features" :key="index" class="feature-item">
+        <div v-for="(feature, index) in features" :key="index" class="feature-item" @click="handleFeatureClick(feature)">
           <div class="feature-bg">
             <img :src="feature.bg" :alt="feature.title" class="bg-image" />
             <div class="feature-content">
@@ -46,7 +46,37 @@
         </div>
         <p class="ido-limit-text">{{ $t('index.accountLimit', { count: 0 }) }}</p>
 
-        <button class="ido-btn">{{ $t('index.becomeIdo') }}</button>
+        <div class="project-info">
+          <div class="info-section">
+            <h4 class="section-title">一、结合AI人工智能与技术优势</h4>
+            <div class="info-content">
+              <p class="info-item">1. 代币总发行量8亿枚</p>
+              <p class="info-item">2. 节点输出：</p>
+              <p class="info-subitem">块输出间隔：3 seconds/block</p>
+              <p class="info-subitem">每24小时区块：22300</p>
+            </div>
+          </div>
+
+          <div class="info-section">
+            <h4 class="section-title">二、实用场景</h4>
+            <div class="info-content">
+              <p class="info-item">1：Taurus 公链（将在2027年2月中旬正式上线）</p>
+              <p class="info-item">2：Taurus 挖矿（已上线）</p>
+              <p class="info-item">3：链上支付（已上线）</p>
+              <p class="info-item">4：链上游戏（内测中2026年11月份上线）</p>
+              <p class="info-item">5：链上商城（已上线）</p>
+            </div>
+          </div>
+
+          <div class="info-section">
+            <h4 class="section-title">三、技术架构</h4>
+            <div class="info-content">
+              <p class="info-item">分布式存储：我们的平台汇聚了众多开发者与企业，促进了AI智能领域专业人士、企业家及合作伙伴间的紧密合作，共同推动科技</p>
+            </div>
+          </div>
+        </div>
+
+        <button class="ido-btn" @click="handleGoToNode">{{ $t('index.becomeIdo') }}</button>
       </div>
 
       <div class="nft-section">
@@ -54,7 +84,7 @@
           <img src="/static/images/index/icon-nft-benefit.png" alt="" class="nft-icon" />
           <h2 class="nft-title">{{ $t('index.idoRecruitPlan') }}</h2>
         </div>
-        <img src="/static/images/index/nft-benefits-module.png" :alt="$t('index.nftRights')" class="nft-image" />
+        <img src="/static/images/index/pledge/hero-CvxrCMfG.png" :alt="$t('index.nftRights')" class="nft-image" />
         <p class="nft-hint">{{ $t('index.nftRequirement') }}</p>
         <p class="nft-desc">{{ $t('index.nftDesc') }}</p>
         <div class="nft-progress">
@@ -70,79 +100,110 @@
       <h2 class="partners-title">{{ $t('index.partners') }}</h2>
       <PartnersWall />
     </div>
+
+    <Modal
+      :visible="showModal"
+      :message="modalMessage"
+      @close="showModal = false"
+      @confirm="showModal = false"
+    />
+
+    <InputModal
+      :visible="showInputModal"
+      message="请输入邀请码"
+      placeholder="0x..."
+      confirm-text="提交"
+      @close="showInputModal = false"
+      @confirm="handleSuperiorConfirm"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import Header from '@/components/Header.vue'
 import GoldWaveBackground from '@/components/GoldWaveBackground.vue'
 import StrengthSection from '@/components/StrengthSection.vue'
 import PartnersWall from '@/components/PartnersWall.vue'
+import Modal from '@/components/Modal.vue'
+import InputModal from '@/components/InputModal.vue'
 
 const router = useRouter()
 
+const showModal = ref(false)
+const modalMessage = ref('')
+
+const showInputModal = ref(false)
+const superiorAddress = ref('')
+
 const handleStart = () => {
+  // 判断是否有上级（这里需要根据实际业务逻辑判断）
+  const hasSuperior = false // 假设没有上级
+
+  if (!hasSuperior) {
+    showInputModal.value = true
+  } else {
+    router.push('/pledge')
+  }
+}
+
+const handleSuperiorConfirm = (address: string) => {
+  superiorAddress.value = address
+  console.log('上级地址:', address)
+  // 这里可以保存上级地址到 store 或其他地方
+  return
   router.push('/pledge')
+}
+
+const handleGoToNode = () => {
+  router.push('/node')
+}
+
+const handleFeatureClick = (feature: FeatureItem) => {
+  if (feature.disabled) {
+    modalMessage.value = feature.disabledMessage || '暂未开放'
+    showModal.value = true
+    return
+  }
+  if (feature.external && feature.externalUrl) {
+    window.open(feature.externalUrl, '_blank')
+  }
 }
 
 interface FeatureItem {
   bg: string
   icon: string
   title: string
-}
-
-interface BenefitItem {
-  icon: string
-  title: string
-  desc: string
+  external?: boolean
+  externalUrl?: string
+  disabled?: boolean
+  disabledMessage?: string
 }
 
 const features: FeatureItem[] = [
   {
     bg: '/static/images/output-icon-bg-DIHWgt3w.png',
     icon: '/static/images/index/output-icon.png',
-    title: '支付'
+    title: '支付',
+    external: true,
+    externalUrl: 'https://www.ispaychain.com/?code=0x0b57d116D292dBF4FFd9C979606D9D9EAea0e0a2'
   },
   {
     bg: '/static/images/module-icon-bg-weJSvE3-.png',
     icon: '/static/images/index/module-icon.png',
-    title: 'index.featureTitles[1]'
+    title: 'index.featureTitles[1]',
+    disabled: true,
+    disabledMessage: '内测中2026年11月份上线'
   },
   {
     bg: '/static/images/chart-icon-bg-yYEAC2yW.png',
     icon: '/static/images/index/chart-icon.png',
-    title: '公链'
+    title: '公链',
+    disabled: true
   }
 ]
 
-const benefits: BenefitItem[] = [
-  {
-    icon: '/static/images/index/advantage01.png',
-    title: 'index.benefit_txfee',
-    desc: 'index.benefit_txfeeDesc'
-  },
-  {
-    icon: '/static/images/index/advantage02.png',
-    title: 'index.benefit_profit',
-    desc: 'index.benefit_profitDesc'
-  },
-  {
-    icon: '/static/images/index/advantage03.png',
-    title: 'index.benefit_referral',
-    desc: 'index.benefit_referralDesc'
-  },
-  {
-    icon: '/static/images/index/advantage04.png',
-    title: 'index.benefit_airdrop',
-    desc: 'index.benefit_airdropDesc'
-  },
-  {
-    icon: '/static/images/index/advantage05.png',
-    title: 'index.benefit_maker',
-    desc: 'index.benefit_makerDesc'
-  }
-]
 </script>
 
 <style lang="scss" scoped>
@@ -394,6 +455,56 @@ const benefits: BenefitItem[] = [
     margin: 0 0 24px 0;
   }
 
+  .project-info {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    .info-section {
+      margin-bottom: 20px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .section-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: $brand-gold;
+        margin: 0 0 12px 0;
+        padding-bottom: 8px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .info-content {
+        .info-item {
+          font-size: 13px;
+          color: rgba(255, 255, 255, 0.85);
+          margin: 0 0 8px 0;
+          line-height: 1.6;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+
+        .info-subitem {
+          font-size: 12px;
+          color: rgba(255, 255, 255, 0.6);
+          margin: 0 0 6px 0;
+          padding-left: 16px;
+          line-height: 1.5;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+
   .ido-benefits {
     display: flex;
     flex-direction: column;
@@ -432,8 +543,6 @@ const benefits: BenefitItem[] = [
   .ido-btn {
     width: 100%;
     padding: 14px 0;
-    background: transparent;
-    color: $brand-gold;
     font-size: 16px;
     font-weight: 500;
     border: 1px solid $brand-gold;
@@ -441,11 +550,8 @@ const benefits: BenefitItem[] = [
     cursor: pointer;
     text-align: center;
     transition: all 0.3s ease;
-
-    &:hover {
-      background: $gradient-gold;
-      color: $text-inverse;
-    }
+    background: $gradient-gold;
+    color: $text-inverse; 
   }
 }
 

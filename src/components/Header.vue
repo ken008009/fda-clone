@@ -1,7 +1,7 @@
 <template>
   <header class="app-header">
     <div class="header-container">
-      <div class="header-left">
+      <div class="header-left" @click="handleSidebarClick">
         <img src="/assets/logo.png" alt="Logo" class="logo" />
         <span>TAURUS</span>
       </div>
@@ -33,6 +33,12 @@
         </div>
       </div>
     </div>
+
+    <Sidebar
+      :visible="showSidebar"
+      @close="showSidebar = false"
+      @language-click="handleLanguageClick"
+    />
   </Teleport>
 </template>
 
@@ -41,12 +47,14 @@ import { ref, watch } from 'vue'
 import { Teleport } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useWalletStore } from '@/stores/wallet'
+import Sidebar from '@/components/Sidebar.vue'
 
 const walletStore = useWalletStore()
 const { locale } = useI18n()
 
 const currentLanguage = ref(locale.value)
 const showLangDrawer = ref(false)
+const showSidebar = ref(false)
 
 const languages = [
   { code: 'zh', name: '简体中文' },
@@ -60,6 +68,10 @@ const languages = [
 watch(locale, (val) => {
   currentLanguage.value = val
 })
+
+const handleSidebarClick = () => {
+  showSidebar.value = true
+}
 
 const handleLanguageClick = () => {
   showLangDrawer.value = true

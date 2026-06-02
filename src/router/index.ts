@@ -16,6 +16,14 @@ const routes: RouteRecordRaw[] = [
     }
   },
   {
+    path: '/node',
+    name: 'Node',
+    component: () => import('@/views/node.vue'),
+    meta: {
+      title: '节点认购'
+    }
+  },
+  {
     path: '/community',
     name: 'Community',
     component: () => import('@/views/community.vue'),

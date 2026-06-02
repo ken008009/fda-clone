@@ -5,7 +5,7 @@
       <img src="/static/images/index/pledge/hero.png" :alt="$t('pledge.pledge')" class="hero-image" />
 
       <div class="number-container">
-        <template v-for="(item, index) in digitLayout" :key="index">
+        <!-- <template v-for="(item, index) in digitLayout" :key="index">
           <div v-if="item.type === 'digit'" class="digit-wrapper">
             <div class="digit-column" :style="{ transform: `translateY(-${item.value * 10}%)` }">
               <div v-for="num in digitNumbers" :key="num" class="digit-item">{{ num }}</div>
@@ -14,75 +14,8 @@
           <div v-else-if="item.type === 'decimal'" class="digit-wrapper decimal-point">
             <div class="decimal-item">{{ item.char }}</div>
           </div>
-        </template>
+        </template> -->
       </div>
-
-      <p class="asset-label">{{ $t('pledge.currentAssets') }}</p>
-
-      <button class="mining-btn" @click="modalVisible = true">{{ $t('pledge.startMining') }}</button>
-
-      <Teleport to="body">
-        <div v-if="modalVisible" class="modal-overlay" @click="modalVisible = false">
-          <div class="modal-content" @click.stop>
-            <div class="modal-header">
-              <span></span>
-              <span class="modal-title">{{ $t('pledge.pledge') }}</span>
-              <span class="modal-close" @click="modalVisible = false">×</span>
-            </div>
-
-            <div class="modal-body">
-              <p class="section-label">{{ $t('pledge.selectCycle') }}</p>
-              <div class="cycle-list">
-                <div
-                  v-for="cycle in cycles"
-                  :key="cycle.days"
-                  class="cycle-card"
-                  :class="{ active: selectedCycle === cycle.days }"
-                  @click="selectedCycle = cycle.days"
-                >
-                  <div class="cycle-header">
-                    <span>{{ cycle.days }}{{ $t('pledge.days') }}</span>
-                    <img
-                      :src="selectedCycle === cycle.days ? '/static/images/up-active.png' : '/static/images/up-inactive.png'"
-                      class="cycle-icon"
-                    />
-                  </div>
-                  <div class="cycle-rate">
-                    <span class="rate-num">{{ cycle.rate }}%</span>
-                    <span class="rate-label">{{ $t('pledge.dailyCompound') }}</span>
-                  </div>
-                </div>
-              </div>
-
-              <p class="balance-text">{{ $t('pledge.availableBalance') }}<span class="highlight">0.00 USDT</span></p>
-
-              <div class="input-row">
-                <div class="input-wrap">
-                  <input
-                    v-model="amount"
-                    type="number"
-                    :placeholder="$t('pledge.enterPledgeAmount')"
-                    class="amount-input"
-                  />
-                </div>
-                <button class="max-btn" @click="amount = '1000'">MAX</button>
-              </div>
-
-              <div class="limit-row">
-                <span>{{ $t('pledge.minPledge') }}<span class="highlight">1USDT</span></span>
-                <span>{{ $t('pledge.maxPledge') }}<span class="highlight">1000USDT</span></span>
-              </div>
-
-              <div class="profit-row">
-                <span>{{ $t('pledge.estimatedProfit') }}</span>
-                <span class="highlight">0 USDT</span>
-              </div>
-
-              <button class="submit-btn" @click="handleSubmit">{{ $t('pledge.pledgeNow') }}</button>
-            </div>
-          </div>
-        </div>
-      </Teleport>
     </div>
   </div>
 </template>

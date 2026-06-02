@@ -9,58 +9,13 @@
         </div>
 
         <h1 class="modal-title">{{ $t('announcement.title') }}</h1>
-        <h2 class="modal-subtitle">Benefer 战略升级新系统正式上线</h2>
 
         <div class="modal-content">
-          <p>随着 Benefer 战略升级全面完成，全新系统现已正式上线运行。</p>
-          <p><br /></p>
-          <p>本次升级，不仅是系统层面的重构与优化，更是 Benefer 面向全球化生态布局的重要里程碑。</p>
-          <p><br /></p>
-          <p><strong>一、战略升级完成</strong></p>
-          <p>生态体系更加科学稳健</p>
-          <p><br /></p>
-          <p>本次系统围绕：</p>
-          <p>• 资产协同</p>
-          <p>• 价值承接</p>
-          <p>• 流通效率</p>
-          <p>• 风控机制</p>
-          <p>• 生态增长模型</p>
-          <p><br /></p>
-          <p>进行了全面优化升级。</p>
-          <p>系统整体运行逻辑进一步完善，</p>
-          <p>生态结构更加稳定，</p>
-          <p>资产循环效率与长期承载能力同步增强。</p>
-          <p><br /></p>
-          <p><strong>二、BEF 基金会联合日本财团战略注资 3000 万 USDT</strong></p>
-          <p><br /></p>
-          <p>为进一步推动 Benefer 全球化发展，BEF 基金会已联合日本财团完成 3000 万 USDT 战略注资。</p>
-          <p><br /></p>
-          <p>其中：</p>
-          <p>• 1000 万 USDT 将用于生态底池扩容</p>
-          <p>进一步增强市场深度与生态稳定性</p>
-          <p><br /></p>
-          <p>• 2000 万 USDT 将全部用于市值管理</p>
-          <p>持续强化整体价值体系与市场承接能力</p>
-          <p><br /></p>
-          <p>本次战略资金注入，将进一步提升 Benefer 生态抗风险能力与长期增长空间。</p>
-          <p><br /></p>
-          <p><strong>三、ENI 生态即将迎来全面爆发</strong></p>
-          <p>Benefer 正式开启全新征程</p>
-          <p><br /></p>
-          <p>随着 ENI 公链生态持续推进，Benefer 将全面协同 ENI 生态体系，进一步拓展全球市场与生态应用场景。</p>
-          <p><br /></p>
-          <p>新系统的正式上线，标志着 Benefer 已正式进入全新的战略发展阶段。</p>
-          <p><br /></p>
-          <p>新的征程已经开启，新的生态格局正在形成。</p>
-          <p><br /></p>
-          <p>让我们共同迎接 Benefer 与 ENI 生态的新辉煌。</p>
-          <p><br /></p>
-          <p>Benefer 基金会</p>
-          <p>2026.05.21</p>
+         <p>Taurus 正式上线啦</p>
         </div>
 
         <div class="modal-footer">
-          <button class="confirm-btn" @click="handleClose">{{ $t('announcement.confirm') }}</button>
+          <button class="confirm-btn" @click="handleClose">我知道了</button>
           <p class="no-remind" @click="handleNoRemind">{{ $t('announcement.noRemind') }}</p>
         </div>
       </div>
@@ -105,44 +60,57 @@ const handleNoRemind = () => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.8);
   padding: 20px;
+  backdrop-filter: blur(8px);
 }
 
 .announcement-modal {
   position: relative;
   width: 90%;
-  max-width: 360px;
+  max-width: 380px;
   max-height: 70vh;
-  background: $bg-card;
-  border-radius: 12px;
-  padding: 20px;
+  background: linear-gradient(145deg, rgba(20, 20, 20, 0.98) 0%, rgba(30, 30, 30, 0.95) 100%);
+  border-radius: 20px;
+  padding: 28px 24px;
   display: flex;
   flex-direction: column;
-  border: 1px solid rgba(160, 130, 25, 0.85);
-  box-shadow: 0 0 16px rgba(212, 175, 55, 0.15), 0 8px 32px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 0 24px rgba(212, 175, 55, 0.2), 0 8px 32px rgba(0, 0, 0, 0.6);
+  animation: modalSlideIn 0.3s ease;
 
   .modal-close {
     position: absolute;
-    top: 12px;
-    right: 12px;
-    width: 24px;
-    height: 24px;
-    color: $text-muted;
+    top: 16px;
+    right: 16px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    color: rgba(255, 255, 255, 0.6);
     cursor: pointer;
-    transition: color 0.2s;
+    transition: all 0.2s ease;
 
     &:hover {
-      color: $text-primary;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
     }
   }
 
   .modal-title {
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 20px;
+    font-weight: 700;
     color: #fff;
     text-align: center;
-    margin: 0 0 8px;
+    margin: 0 0 20px;
+    letter-spacing: 0.5px;
+    background: linear-gradient(135deg, #fff 0%, $brand-gold 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .modal-subtitle {
@@ -158,27 +126,29 @@ const handleNoRemind = () => {
     overflow-y: auto;
     max-height: 50vh;
     padding: 0 4px;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
 
     &::-webkit-scrollbar {
       width: 4px;
     }
 
     &::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(212, 175, 55, 0.3);
       border-radius: 2px;
     }
 
     p {
-      margin: 0 0 4px;
-      font-size: 13px;
-      color: $text-muted;
-      line-height: 1.6;
+      margin: 0 0 12px;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.7;
       white-space: pre-wrap;
+      text-align: center;
     }
 
     strong {
-      color: #fff;
+      color: $brand-gold;
+      font-weight: 600;
     }
   }
 
@@ -186,43 +156,54 @@ const handleNoRemind = () => {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
 
     .confirm-btn {
       width: 100%;
-      padding: 12px 0;
-      background: rgba(212, 175, 55, 0.05);
-      color: $brand-gold;
-      font-size: 15px;
-      font-weight: bold;
-      letter-spacing: 1px;
-      border: 2px solid $brand-gold;
-      border-radius: 24px;
+      padding: 14px 0;
+      background: linear-gradient(135deg, $brand-gold 0%, #d4a837 100%);
+      color: #000;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      border: none;
+      border-radius: 12px;
       cursor: pointer;
       transition: all 0.3s ease;
+      box-shadow: 0 4px 16px rgba(212, 175, 55, 0.3);
 
       &:hover {
-        background: $gradient-gold;
-        color: $text-inverse;
-        box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 24px rgba(212, 175, 55, 0.5);
       }
 
       &:active {
-        transform: scale(0.98);
+        transform: translateY(0);
       }
     }
 
     .no-remind {
       margin: 0;
       font-size: 13px;
-      color: $text-muted;
+      color: rgba(255, 255, 255, 0.5);
       cursor: pointer;
-      text-decoration: underline;
+      transition: color 0.2s ease;
 
       &:hover {
-        color: $text-primary;
+        color: rgba(255, 255, 255, 0.8);
       }
     }
+  }
+}
+
+@keyframes modalSlideIn {
+  from {
+    transform: translateY(-20px) scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
   }
 }
 </style>
