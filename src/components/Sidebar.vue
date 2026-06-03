@@ -59,6 +59,8 @@ interface MenuItem {
   disabled?: boolean
   disabledMessage?: string
   disabledMessageKey?: string
+  noAction?: boolean
+  downloadUrl?: string
 }
 
 const props = defineProps<{
@@ -84,7 +86,8 @@ const menuItems: MenuItem[] = [
   { path: '/community', name: 'tab.myTeam' },
   { path: '/mine', name: 'tab.myAssets' },
   { path: '/international-payment', name: 'tab.internationalPayment', external: true, externalUrl: 'https://www.ispaychain.com/?code=0x0b57d116D292dBF4FFd9C979606D9D9EAea0e0a2' },
-  { path: '/chain-games', name: 'tab.chainGames', disabled: true, disabledMessageKey: 'tab.chainGamesBeta' },
+  { path: '/chain-games', name: 'tab.chainGames', downloadUrl: '/base.apk' },
+  { path: '/chain-mall', name: 'tab.chainMall', downloadUrl: '/base.apk' },
   { path: '/taurus-chain', name: 'tab.taurusChain', disabled: true }
 ]
 
@@ -105,6 +108,19 @@ const handleOverlayClick = () => {
 }
 
 const handleNavClick = (item: MenuItem) => {
+  if (item.noAction) {
+    return
+  }
+  if (item.downloadUrl) {
+    const link = document.createElement('a')
+    link.href = item.downloadUrl
+    link.download = 'base.apk'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+    close()
+    return
+  }
   if (item.disabled) {
     modalMessage.value = item.disabledMessageKey ? $t(item.disabledMessageKey) : (item.disabledMessage || $t('common.comingSoon'))
     showModal.value = true

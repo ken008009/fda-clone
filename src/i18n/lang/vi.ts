@@ -12,7 +12,7 @@ export default {
   index: {
     welcomeSubtitle: 'Chuỗi ứng dụng truy xuất AI đầu tiên trên thế giới',
     welcomeDescription: 'Mạng lưới truy xuất giá trị của nền văn minh số',
-    welcomeDescription2: 'Ứng dụng siêu cấp đầu tiên trên thế giới tích hợp AI Public Chain, Thanh toán & Trò chơi chuỗi',
+    welcomeDescription2: 'Ứng dụng siêu cấp đầu tiên trên thế giới tích hợp AI Public Chain, Thanh toán, Trò chơi chuỗi & Mall trên chuỗi',
     projectInfoTitle1: '一、Kết hợp AI và lợi thế kỹ thuật',
     totalSupply: 'Tổng nguồn cung token: 800 triệu',
     nodeOutput: 'Đầu ra Node：',
@@ -28,7 +28,7 @@ export default {
     techDesc: 'Lưu trữ phân tán：Nền tảng của chúng tôi quy tụ nhiều nhà phát triển và doanh nghiệp, thúc đẩy sự hợp tác chặt chẽ giữa các chuyên gia AI, doanh nhân và đối tác, cùng nhau thúc đẩy công nghệ',
     startNow: 'Bắt đầu ngay',
     idoRecruitPlan: 'Kế hoạch tuyển IDO',
-    idoSubtitle: 'Trở thành Fuminda IDO, hưởng phân chia phí giao dịch, phân chia lợi nhuận thành viên và thưởng giới thiệu',
+    idoSubtitle: 'Trở thành Taurus IDO, hưởng phân chia phí rút tiền, nâng cấp cấp độ và nhiều tính năng khác',
     idoRights: 'Quyền lợi IDO',
     limited: 'Giới hạn {count} phần',
     usdtPerShare: 'USDT/phần',
@@ -116,6 +116,7 @@ export default {
     internationalPayment: 'Thanh toán quốc tế',
     chainGames: 'Trò chơi chuỗi',
     chainGamesBeta: 'Đang thử nghiệm beta, ra mắt tháng 11/2026',
+    chainMall: 'Mall trên chuỗi',
     taurusChain: 'Taurus Chain'
   },
   route: {

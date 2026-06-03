@@ -12,7 +12,7 @@ export default {
   index: {
     welcomeSubtitle: '世界初のAIトレースアプリチェーン',
     welcomeDescription: 'デジタル文明の価値トレースネットワーク',
-    welcomeDescription2: '世界初のAIパブリックチェーン・決済・チェーンゲーム統合スーパーアプリ',
+    welcomeDescription2: '世界初のAIパブリックチェーン・決済・チェーンゲーム・チェーンモール統合スーパーアプリ',
     projectInfoTitle1: '一、AI人工知能と技術優位性の融合',
     totalSupply: 'トークン総発行量8億枚',
     nodeOutput: 'ノード出力：',
@@ -28,7 +28,7 @@ export default {
     techDesc: '分散ストレージ：当プラットフォームは多くの開発者と企業を集め、AI分野の専門家、起業家、パートナー間の緊密な協力を促進し、共に技術を推進します',
     startNow: '今すぐ開始',
     idoRecruitPlan: 'IDO募集計画',
-    idoSubtitle: 'Fuminda IDOになり、取引税配当、会員収益配当、推薦報酬を享受',
+    idoSubtitle: 'Taurus IDOになり、出金手数料配当、レベルアップなどの機能を享受',
     idoRights: 'IDO権益',
     limited: '限定{count}部',
     usdtPerShare: 'USDT/部',
@@ -116,6 +116,7 @@ export default {
     internationalPayment: '国際決済',
     chainGames: 'チェーンゲーム',
     chainGamesBeta: 'ベータテスト中、2026年11月リリース予定',
+    chainMall: 'チェーンモール',
     taurusChain: 'Taurusパブリックチェーン'
   },
   route: {

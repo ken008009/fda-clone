@@ -12,7 +12,7 @@ export default {
   index: {
     welcomeSubtitle: "World's First AI Traceability App Chain",
     welcomeDescription: 'Value Traceability Network of Digital Civilization',
-    welcomeDescription2: "World's First AI Public Chain, Payment & Chain Games Super App",
+    welcomeDescription2: "World's First AI Public Chain, Payment, Chain Games & Chain Mall Super App",
     projectInfoTitle1: 'I. AI & Technical Advantages',
     totalSupply: 'Total Token Supply: 800 Million',
     nodeOutput: 'Node Output:',
@@ -28,7 +28,7 @@ export default {
     techDesc: 'Distributed Storage: Our platform brings together developers and enterprises, fostering close collaboration among AI professionals, entrepreneurs and partners to jointly drive technological advancement',
     startNow: 'Start Now',
     idoRecruitPlan: 'IDO Recruitment Plan',
-    idoSubtitle: 'Become a Fuminda IDO and enjoy trading fee dividends, membership income dividends, and referral rewards',
+    idoSubtitle: 'Become a Taurus IDO and enjoy withdrawal fee dividends, level upgrades, and more benefits',
     idoRights: 'IDO Rights',
     limited: 'Limited to {count} copies',
     usdtPerShare: 'USDT/Share',
@@ -116,6 +116,7 @@ export default {
     internationalPayment: 'International Payment',
     chainGames: 'Chain Games',
     chainGamesBeta: 'Beta testing, launching Nov 2026',
+    chainMall: 'Chain Mall',
     taurusChain: 'Taurus Chain'
   },
   route: {

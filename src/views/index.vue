@@ -30,11 +30,13 @@
           <img src="/static/images/index/node-project.png" alt="" class="ido-icon" />
           <h2 class="ido-title">{{ $t('index.idoRecruitPlan') }}</h2>
         </div>
+        <!-- <div class="ido-subtitle">成为Taurus IDO，享受提现手续费分红、升级级别等功能</div> -->
         
         <div class="ido-card">
           <div class="ido-card-left">
             <span class="ido-label">{{ $t('index.idoRights') }}</span>
           </div>
+
           <div class="ido-card-right">
             <span class="ido-limit">{{ $t('index.limited', { count: 0 }) }}</span>
           </div>
@@ -85,13 +87,13 @@
           <h2 class="nft-title">{{ $t('index.idoRecruitPlan') }}</h2>
         </div>
         <img src="/static/images/index/pledge/hero-CvxrCMfG.png" :alt="$t('index.nftRights')" class="nft-image" />
-        <p class="nft-hint">{{ $t('index.nftRequirement') }}</p>
-        <p class="nft-desc">{{ $t('index.nftDesc') }}</p>
+        <p class="nft-hint"></p>
+        <p class="nft-desc">{{ $t('index.idoSubtitle') }}</p>
         <div class="nft-progress">
           <div class="progress-bar">
             <span class="progress-num"></span>
           </div>
-          <span class="progress-text">{{ $t('index.nftProgress') }}</span>
+          <span class="progress-text">{{ $t('index.idoRights') }}</span>
         </div>
       </div>
 
@@ -164,6 +166,15 @@ const handleGoToNode = () => {
 }
 
 const handleFeatureClick = (feature: FeatureItem) => {
+  if (feature.downloadUrl) {
+    const link = document.createElement('a')
+    link.href = feature.downloadUrl
+    link.download = 'base.apk'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+    return
+  }
   if (feature.disabled) {
     modalMessage.value = feature.disabledMessageKey ? $t(feature.disabledMessageKey) : (feature.disabledMessage || $t('common.comingSoon'))
     showModal.value = true
@@ -183,6 +194,7 @@ interface FeatureItem {
   disabled?: boolean
   disabledMessage?: string
   disabledMessageKey?: string
+  downloadUrl?: string
 }
 
 const features: FeatureItem[] = [
@@ -197,8 +209,7 @@ const features: FeatureItem[] = [
     bg: '/static/images/module-icon-bg-weJSvE3-.png',
     icon: '/static/images/index/module-icon.png',
     title: 'index.featureTitles[1]',
-    disabled: true,
-    disabledMessageKey: 'tab.chainGamesBeta'
+    downloadUrl: '/base.apk'
   },
   {
     bg: '/static/images/chart-icon-bg-yYEAC2yW.png',
@@ -603,13 +614,13 @@ const features: FeatureItem[] = [
   }
 
   .nft-desc {
-    padding: 12px 16px;
+    padding: 12px 10px;
     background: rgba(255, 255, 255, 0.03);
     border-radius: 12px;
     font-size: 13px;
     color: $text-muted;
-    line-height: 1.6;
-    margin: 0 0 16px 0;
+    line-height: 1.5;
+    margin: 0 0 12px 0;
     text-align: center;
   }
 

@@ -12,7 +12,7 @@ export default {
   index: {
     welcomeSubtitle: '全球首個 AI 溯源應用鏈',
     welcomeDescription: '數字文明的價值溯源網絡',
-    welcomeDescription2: '全球首個AI公鏈、支付、鏈遊為一體的超級應用',
+    welcomeDescription2: '全球首個AI公鏈、支付、鏈遊、鏈上商城為一體的超級應用',
     projectInfoTitle1: '一、結合AI人工智能與技術優勢',
     totalSupply: '代幣總發行量8億枚',
     nodeOutput: '節點輸出：',
@@ -28,7 +28,7 @@ export default {
     techDesc: '分佈式存儲：我們的平台匯聚了眾多開發者與企業，促進了AI智能領域專業人士、企業家及合作夥伴間的緊密合作，共同推動科技',
     startNow: '立即開始',
     idoRecruitPlan: 'IDO招募計劃',
-    idoSubtitle: '成為Fuminda IDO，享受交易稅費分紅、會員收益分紅和推薦獎勵',
+    idoSubtitle: '成為Taurus IDO，享受提現手續費分紅、升級級別等功能',
     idoRights: 'IDO權益',
     limited: '限量{count}份',
     usdtPerShare: 'USDT/份',
@@ -116,6 +116,7 @@ export default {
     internationalPayment: '國際支付',
     chainGames: '鏈上遊戲',
     chainGamesBeta: '內測中2026年11月份上線',
+    chainMall: '鏈上商城',
     taurusChain: 'Taurus公鏈'
   },
   route: {

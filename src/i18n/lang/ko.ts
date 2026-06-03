@@ -12,7 +12,7 @@ export default {
   index: {
     welcomeSubtitle: '세계 최초 AI 추적 앱 체인',
     welcomeDescription: '디지털 문명의 가치 추적 네트워크',
-    welcomeDescription2: '세계 최초 AI 퍼블릭 체인·결제·체인 게임 통합 슈퍼 앱',
+    welcomeDescription2: '세계 최초 AI 퍼블릭 체인·결제·체인 게임·체인 몰 통합 슈퍼 앱',
     projectInfoTitle1: '一、AI 인공지능과 기술 우위성 결합',
     totalSupply: '토큰 총 발행량 8억 개',
     nodeOutput: '노드 출력：',
@@ -28,7 +28,7 @@ export default {
     techDesc: '분산 스토리지：우리 플랫폼은 수많은 개발자와 기업을 모아 AI 분야 전문가, 기업가 및 파트너 간의 긴밀한 협력을 촉진하여 공동으로 기술을 추진합니다',
     startNow: '지금 시작',
     idoRecruitPlan: 'IDO 모집 계획',
-    idoSubtitle: 'Fuminda IDO가 되어 거래세 배당, 회원 수익 배당, 추천 보상을 누리세요',
+    idoSubtitle: 'Taurus IDO가 되어 출금 수수료 배당, 레벨 업그레이드 등의 기능을 누리세요',
     idoRights: 'IDO 권익',
     limited: '한정 {count}부',
     usdtPerShare: 'USDT/부',
@@ -116,6 +116,7 @@ export default {
     internationalPayment: '국제 결제',
     chainGames: '체인 게임',
     chainGamesBeta: '베타 테스트 중, 2026년 11월 출시 예정',
+    chainMall: '체인 몰',
     taurusChain: 'Taurus 퍼블릭 체인'
   },
   route: {

@@ -14,7 +14,7 @@ export default {
     welcomeDescription: '数字文明的价值溯源网络',
     startNow: '立即开始',
     idoRecruitPlan: 'IDO招募计划',
-    idoSubtitle: '成为Fuminda IDO，享受交易税费分红、会员收益分红和推荐奖励',
+    idoSubtitle: '成为Taurus IDO，享受提现手续费分红、升级级别等功能',
     idoRights: 'IDO权益',
     limited: '限量{count}份',
     usdtPerShare: 'USDT/份',
@@ -30,7 +30,7 @@ export default {
     benefit_airdropDesc: '获得1050枚FDA代币空投，逐步释放',
     benefit_maker: '做市商分红',
     benefit_makerDesc: '获得3%做市商利润加权分红',
-    welcomeDescription2: '全球首个AI公链、支付、链游为一体的超级应用',
+    welcomeDescription2: '全球首个AI公链、支付、链游、链上商城为一体的超级应用',
     projectInfoTitle1: '一、结合AI人工智能与技术优势',
     totalSupply: '代币总发行量8亿枚',
     nodeOutput: '节点输出：',
@@ -116,6 +116,7 @@ export default {
     internationalPayment: '国际支付',
     chainGames: '链上游戏',
     chainGamesBeta: '内测中2026年11月份上线',
+    chainMall: '链上商城',
     taurusChain: 'Taurus公链'
   },
   route: {
